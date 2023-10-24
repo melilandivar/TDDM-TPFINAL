@@ -3894,6 +3894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1258033601}
   - component: {fileID: 1258033600}
+  - component: {fileID: 1258033602}
   m_Layer: 0
   m_Name: MARIA
   m_TagString: Untagged
@@ -3968,6 +3969,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1258033602
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258033599}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1fc4c26adcb5e4d42b90f92add33c9fa, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 1fc4c26adcb5e4d42b90f92add33c9fa, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1277654446
 GameObject:
   m_ObjectHideFlags: 0
@@ -5258,7 +5275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1689068796
 Transform:
   m_ObjectHideFlags: 0
@@ -5361,7 +5378,7 @@ Camera:
   far clip plane: 1000
   field of view: 66
   orthographic: 1
-  orthographic size: 481.82715
+  orthographic size: 633.9728
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -5386,7 +5403,7 @@ Transform:
   m_GameObject: {fileID: 1692728014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 936, y: 669, z: -714.07}
+  m_LocalPosition: {x: 1009, y: 744, z: -714.07}
   m_LocalScale: {x: 101.541046, y: 596.01965, z: 142.49774}
   m_ConstrainProportionsScale: 0
   m_Children: []

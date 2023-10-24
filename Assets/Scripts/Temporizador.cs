@@ -37,10 +37,10 @@ public class Temporizador : MonoBehaviour
             solMañana.SetActive(true);
             Confortable.SetActive(true);
             veinticinco.SetActive(true);
-
-                        Alarmante.SetActive(false);
+           
+            Alarmante.SetActive(false);
             treinta.SetActive(false);   
-                        Crisis.SetActive(false);
+            Crisis.SetActive(false);
             treintaydos.SetActive(false);   
             treintaycinco.SetActive(false);   
             
@@ -67,7 +67,7 @@ public class Temporizador : MonoBehaviour
             solNoche.SetActive(true);
         }
 
-        if (duracionTotal <=0f) // El tiempo ha terminado, puedes manejar el final del juego aquí
+        if (duracionTotal <=0f) // El tiempo ha terminado
         {
 
             // Puedes hacer algo cuando el juego termina, como mostrar un mensaje de Game Over o reiniciar el nivel.
