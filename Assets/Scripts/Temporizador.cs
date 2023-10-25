@@ -15,6 +15,7 @@ public class Temporizador : MonoBehaviour
     {
         // Iniciar el temporizador cuando el juego comienza
         InvokeRepeating("ActualizarTemporizador", 0f, 1f); // Invocar ActualizarTemporizador cada segundo
+        Puntos.puntos = 10f;
 
     }
     
@@ -27,7 +28,7 @@ public class Temporizador : MonoBehaviour
     private void ActualizarTemporizador()
     {
         // Acceder a la variable puntos del script Puntos
-        Puntos.puntos -= 1f; 
+      //  Puntos.puntos -= 1f; 
         duracionTotal -= 1f; // Reducir 1 segundo del temporizador
 
         // Verificar el tiempo actual y activar los objetos correspondientes
