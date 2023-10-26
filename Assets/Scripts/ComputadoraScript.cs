@@ -1,53 +1,60 @@
 using UnityEngine;
-public class Interactuar : MonoBehaviour
+
+public class ComputadoraScript : MonoBehaviour
 {
-    public GameObject luzObjeto;
-    public bool luz;
- //   public bool esCompu;
-    private bool luzOnOff;
-    private bool OnOff; 
+
+    public GameObject Computadora;
+    public bool esCompu;
+    private bool OnOff;
+    private bool sonidoOnOff;
+    // Start is called before the first frame update
     void Start()
     {
-
         
     }
 
     // Update is called once per frame
     void Update()
     {
-   // Debug.Log(compu);
-    }
-    public void Accionar(){
-        Debug.Log("accionar llamado");
-        if(luz){
-            OnOffLuz();
-        }
-    /*    if(esCompu){              
-            Debug.Log("por llamar a modificar puntos");     
-            ModificarPuntos();
-        }*/
+     //   Debug.Log(Puntos.puntos);
     }
 
-    void OnOffLuz(){
-        luzOnOff = !luzOnOff;
-        if(luzOnOff == true){
-            luzObjeto.SetActive(true);
+    public void Accionar(){
+        Debug.Log("accionar llamado");
+
+        if(esCompu){
+            Debug.Log("por llamar a modificar puntos");     
+            ModificarPuntos();
+         //   ReproducirSonido("televisor");
         }
-        if(luzOnOff == false){
-            luzObjeto.SetActive(false);
+
+    }
+
+
+    void ModificarPuntos(){
+        Debug.Log("ModificarPuntos() llamado");
+        Debug.Log(OnOff);
+        OnOff = !OnOff;
+        if(OnOff == true){
+             Puntos.puntos += 3f;
+             ReproducirSonido("televisor");
+             Debug.Log("clickeado");
+        }
+        if(OnOff == false){
+             Puntos.puntos -= 3f;
         }
     }
-    
+
     void ReproducirSonido(string nombreAudio)
     {
-        OnOff = !OnOff;
+        sonidoOnOff = !sonidoOnOff;
         GameObject audioObjeto = GameObject.Find(nombreAudio);
         if (audioObjeto != null)
         {
             AudioSource audioSource = audioObjeto.GetComponent<AudioSource>();
             if (audioSource != null)
             {
-                if (OnOff)
+                if (sonidoOnOff)
                 {
                     audioSource.Play();
                 }
@@ -66,18 +73,4 @@ public class Interactuar : MonoBehaviour
             Debug.LogWarning("Objeto de audio no encontrado: " + nombreAudio);
         }
     }
-
- /*   void ModificarPuntos(){
-        Debug.Log("ModificarPuntos() llamado");
-        Debug.Log(OnOff);
-        OnOff = !OnOff;
-        if(OnOff == true){
-             Puntos.puntos += 3f;
-             ReproducirSonido("televisor");
-             Debug.Log("clickeado");
-        }
-        if(OnOff == false){
-             Puntos.puntos -= 3f;
-        }
-    } */
 }

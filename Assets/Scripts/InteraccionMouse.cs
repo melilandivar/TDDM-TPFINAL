@@ -18,12 +18,21 @@ public class InteraccionMouse : MonoBehaviour
             {
                 // Intenta obtener el componente Interactuar del objeto clickeado
                 Interactuar interactuarComponent = hit.collider.gameObject.GetComponent<Interactuar>();
+                MicroondasScript microondasScript = hit.collider.gameObject.GetComponent<MicroondasScript>();
 
                 // Si el objeto clickeado tiene el componente Interactuar
                 if (interactuarComponent != null)
                 {
                     // Llama a la función OnOffLuz() del componente Interactuar
                     interactuarComponent.Accionar();
+                }
+
+                                // Si el objeto clickeado tiene el componente Interactuar
+                if (microondasScript != null)
+                {
+                    // Llama a la función OnOffLuz() del componente Interactuar
+                    microondasScript.Accionar();
+                    Debug.Log("compu en Interactuar script: " + microondasScript.esMicroondas);
                 }
             }
         }
