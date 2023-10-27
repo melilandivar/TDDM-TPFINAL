@@ -30,6 +30,7 @@ public class Temporizador : MonoBehaviour
         // Acceder a la variable puntos del script Puntos
       //  Puntos.puntos -= 1f; 
         duracionTotal -= 1f; // Reducir 1 segundo del temporizador
+        Debug.Log("puntos" + Puntos.puntos);
 
         // Verificar el tiempo actual y activar los objetos correspondientes
         if (duracionTotal <= 240f) // Menos de 2 minutos (solMañana)
@@ -44,7 +45,7 @@ public class Temporizador : MonoBehaviour
             
         }
         if(duracionTotal == 235f){
-          Puntos.puntos -= 3f;
+     //     Puntos.puntos -= 3f;
         }
         if (duracionTotal <= 235f) // Menos de 2 minutos (solMañana)
         {
@@ -56,7 +57,7 @@ public class Temporizador : MonoBehaviour
             
         }
         if(duracionTotal == 230f){
-            Puntos.puntos -= 5f;
+      //      Puntos.puntos -= 5f;
         }
         if (duracionTotal <= 230f && duracionTotal > 0f) // Entre 2 y 3 minutos (solTarde)
         {
@@ -69,7 +70,7 @@ public class Temporizador : MonoBehaviour
           
         }
         if(duracionTotal == 225f){
-             Puntos.puntos -= 3f;
+       //      Puntos.puntos -= 3f;
         }
         if (duracionTotal <=0f) // El tiempo ha terminado
         {

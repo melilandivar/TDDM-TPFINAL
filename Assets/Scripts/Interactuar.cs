@@ -1,9 +1,12 @@
 using UnityEngine;
 public class Interactuar : MonoBehaviour
 {
-    public GameObject luzObjeto;
+  //  public GameObject luzObjeto;
     public bool luz;
- //   public bool esCompu;
+    public bool esCompu;
+    public bool esMicroondas;
+    public bool esAire;
+    public bool esLavarropas;
     private bool luzOnOff;
     private bool OnOff; 
     void Start()
@@ -18,16 +21,28 @@ public class Interactuar : MonoBehaviour
    // Debug.Log(compu);
     }
     public void Accionar(){
-        Debug.Log("accionar llamado");
+       // Debug.Log("accionar llamado");
         if(luz){
-            OnOffLuz();
+      //      OnOffLuz();
         }
-    /*    if(esCompu){              
-            Debug.Log("por llamar a modificar puntos");     
+        if(esCompu){              
+            Debug.Log("compu");     
             ModificarPuntos();
-        }*/
+        }
+        if(esMicroondas){              
+            Debug.Log("microondas");     
+            ModificarPuntos();
+        }
+        if(esLavarropas){              
+            Debug.Log("lavarropas");     
+            ModificarPuntos();
+        }
+        if(esAire){              
+            Debug.Log("aire");     
+            ModificarPuntos();
+        }
     }
-
+/*
     void OnOffLuz(){
         luzOnOff = !luzOnOff;
         if(luzOnOff == true){
@@ -37,7 +52,7 @@ public class Interactuar : MonoBehaviour
             luzObjeto.SetActive(false);
         }
     }
-    
+    */
     void ReproducirSonido(string nombreAudio)
     {
         OnOff = !OnOff;
@@ -67,17 +82,16 @@ public class Interactuar : MonoBehaviour
         }
     }
 
- /*   void ModificarPuntos(){
-        Debug.Log("ModificarPuntos() llamado");
-        Debug.Log(OnOff);
+    void ModificarPuntos(){
         OnOff = !OnOff;
         if(OnOff == true){
-             Puntos.puntos += 3f;
-             ReproducirSonido("televisor");
-             Debug.Log("clickeado");
+             Puntos.puntos -= 3f;
+         //    ReproducirSonido("televisor");
+             Debug.Log("sumar");
         }
         if(OnOff == false){
              Puntos.puntos -= 3f;
+             Debug.Log("restar");
         }
-    } */
+    } 
 }
