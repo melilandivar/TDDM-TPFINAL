@@ -3574,7 +3574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24376e036bc300e4390a17192018f71b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duracionTotal: 240
+  duracionTotal: 90
   "solMa\xF1ana": {fileID: 1622770125}
   solTarde: {fileID: 1570346602}
   solNoche: {fileID: 1689068795}

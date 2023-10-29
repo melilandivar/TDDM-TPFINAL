@@ -81,17 +81,60 @@ public class Interactuar : MonoBehaviour
             Debug.LogWarning("Objeto de audio no encontrado: " + nombreAudio);
         }
     }
+    
+    void sumar(float numero){
+        Puntos.puntos += 3f;
+    }
+    
+    void restar(float numero){
+        Puntos.puntos -= numero;
+    }
 
     void ModificarPuntos(){
         OnOff = !OnOff;
-        if(OnOff == true){
-             Puntos.puntos -= 3f;
-         //    ReproducirSonido("televisor");
-             Debug.Log("sumar");
+        if(esCompu){        
+            if(OnOff == true){
+                this.sumar(3);
+                Debug.Log("sumar pc");
+            }
+            if(OnOff == false){
+                this.restar(3);
+                Debug.Log("restar pc");
+            }
         }
-        if(OnOff == false){
-             Puntos.puntos -= 3f;
-             Debug.Log("restar");
+        if(esMicroondas){        
+            if(OnOff == true){
+                this.sumar(2);
+                Debug.Log("sumar microondas");
+            }
+            if(OnOff == false){
+                this.restar(2);
+                Debug.Log("restar microondas");
+            }
         }
+        if(esLavarropas){        
+            if(OnOff == true){
+                this.sumar(4);
+                Debug.Log("sumar lavarropas");
+            }
+            if(OnOff == false){
+                this.restar(2);
+                Debug.Log("restar lavarropas");
+            }
+        }
+        if(esAire){        
+            if(OnOff == true){
+                this.sumar(2);
+                Debug.Log("sumar aire");
+            }
+            if(OnOff == false){
+                this.restar(2);
+                Debug.Log("restar aire");
+            }
+        }
+
+
+        
+
     } 
 }

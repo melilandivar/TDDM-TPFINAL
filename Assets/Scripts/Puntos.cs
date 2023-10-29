@@ -28,7 +28,6 @@ public class Puntos : MonoBehaviour
         if (puntos >= 7 && puntos <= 10 )
         {
             Confortable.SetActive(true);
-            Debug.Log("Confortable");
         }
         if (puntos >= 4 && puntos <= 7 )
         {

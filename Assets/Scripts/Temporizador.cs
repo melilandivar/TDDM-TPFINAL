@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Temporizador : MonoBehaviour
 {
-    public float duracionTotal = 240f; // Duración total del juego en segundos (4 minutos)
+    public float duracionTotal = 90f; // Duración total del juego en segundos (4 minutos)
     public GameObject solMañana;
     public GameObject solTarde;
     public GameObject solNoche;
@@ -33,7 +33,7 @@ public class Temporizador : MonoBehaviour
         Debug.Log("puntos" + Puntos.puntos);
 
         // Verificar el tiempo actual y activar los objetos correspondientes
-        if (duracionTotal <= 240f) // Menos de 2 minutos (solMañana)
+        if (duracionTotal <= 90f) // 1:30 es solMañana
         {
             solMañana.SetActive(true);
             veinticinco.SetActive(true);
@@ -41,25 +41,31 @@ public class Temporizador : MonoBehaviour
             treinta.SetActive(false);   
             treintaydos.SetActive(false);   
             treintaycinco.SetActive(false);   
+
+            Debug.Log("Mañana");
             
             
         }
-        if(duracionTotal == 235f){
-     //     Puntos.puntos -= 3f;
+        if(duracionTotal == 60f){ // 1:00 se restan 3 puntos 
+           Puntos.puntos -= 3f;
+           Debug.Log("Restar 3 puntos");
         }
-        if (duracionTotal <= 235f) // Menos de 2 minutos (solMañana)
+        if (duracionTotal <= 60f) // 1:00 es solTarde
         {
             veinticinco.SetActive(false);            
             solMañana.SetActive(false);
 
             treinta.SetActive(true);
             solTarde.SetActive(true);
+
+            Debug.Log("Tarde");
             
         }
-        if(duracionTotal == 230f){
-      //      Puntos.puntos -= 5f;
+        if(duracionTotal == 30f){ //30 seg se restan 5 puntos
+            Puntos.puntos -= 5f;
+            Debug.Log("Restar 5 puntos");
         }
-        if (duracionTotal <= 230f && duracionTotal > 0f) // Entre 2 y 3 minutos (solTarde)
+        if (duracionTotal <= 30 && duracionTotal > 0f) // 00:30 seg es solNoche
         {
   
             treinta.SetActive(false);           
@@ -67,15 +73,13 @@ public class Temporizador : MonoBehaviour
             treintaydos.SetActive(true);
             solNoche.SetActive(true);
 
+            Debug.Log("Noche");
+
           
-        }
-        if(duracionTotal == 225f){
-       //      Puntos.puntos -= 3f;
         }
         if (duracionTotal <=0f) // El tiempo ha terminado
         {
-
-            // Puedes hacer algo cuando el juego termina, como mostrar un mensaje de Game Over o reiniciar el nivel.
+            //Pantalla perder
         }
     }
 }
