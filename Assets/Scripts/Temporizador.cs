@@ -11,11 +11,14 @@ public class Temporizador : MonoBehaviour
     public GameObject treintaydos;
     public GameObject treintaycinco;
 
+Dialogos dialogos = new Dialogos();
+
     private void Start()
     {
         // Iniciar el temporizador cuando el juego comienza
         InvokeRepeating("ActualizarTemporizador", 0f, 1f); // Invocar ActualizarTemporizador cada segundo
         Puntos.puntos = 10f;
+        
 
     }
     
@@ -46,9 +49,22 @@ public class Temporizador : MonoBehaviour
             
             
         }
+        if(duracionTotal == 80f){ // 1:00 se restan 3 puntos 
+           dialogos.activarComputadora();           
+        }
+        if(duracionTotal == 83f){ // 1:00 se restan 3 puntos 
+           dialogos.activarLavarropas();           
+        }       
         if(duracionTotal == 60f){ // 1:00 se restan 3 puntos 
            Puntos.puntos -= 3f;
            Debug.Log("Restar 3 puntos");
+
+        }
+        if(duracionTotal == 57f){ // 1:00 se restan 3 puntos 
+           dialogos.activarComputadora();           
+        }
+        if(duracionTotal == 55f){ // 1:00 se restan 3 puntos 
+           dialogos.activarAire();           
         }
         if (duracionTotal <= 60f) // 1:00 es solTarde
         {

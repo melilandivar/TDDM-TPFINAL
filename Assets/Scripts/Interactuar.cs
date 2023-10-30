@@ -9,6 +9,7 @@ public class Interactuar : MonoBehaviour
     public bool esLavarropas;
     private bool luzOnOff;
     private bool OnOff; 
+    Dialogos dialogos = new Dialogos();
     void Start()
     {
 
@@ -28,6 +29,7 @@ public class Interactuar : MonoBehaviour
         if(esCompu){              
             Debug.Log("compu");     
             ModificarPuntos();
+            dialogos.desactivarComputadora();
         }
         if(esMicroondas){              
             Debug.Log("microondas");     
@@ -36,6 +38,7 @@ public class Interactuar : MonoBehaviour
         if(esLavarropas){              
             Debug.Log("lavarropas");     
             ModificarPuntos();
+            dialogos.desactivarLavarropas(); 
         }
         if(esAire){              
             Debug.Log("aire");     
@@ -55,21 +58,15 @@ public class Interactuar : MonoBehaviour
     */
     void ReproducirSonido(string nombreAudio)
     {
-        OnOff = !OnOff;
         GameObject audioObjeto = GameObject.Find(nombreAudio);
+        Debug.Log(audioObjeto);
         if (audioObjeto != null)
         {
             AudioSource audioSource = audioObjeto.GetComponent<AudioSource>();
             if (audioSource != null)
             {
-                if (OnOff)
-                {
+              
                     audioSource.Play();
-                }
-                else
-                {
-                    audioSource.Stop();
-                }
             }
             else
             {
@@ -96,6 +93,7 @@ public class Interactuar : MonoBehaviour
             if(OnOff == true){
                 this.sumar(3);
                 Debug.Log("sumar pc");
+           //     ReproducirSonido("PcSound");
             }
             if(OnOff == false){
                 this.restar(3);
