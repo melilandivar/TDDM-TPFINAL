@@ -10,15 +10,21 @@ public class Temporizador : MonoBehaviour
     public GameObject treinta;
     public GameObject treintaydos;
     public GameObject treintaycinco;
+    public GameObject cuarenta;
 
-Dialogos dialogos = new Dialogos();
+    private Dialogos dialogos;
 
     private void Start()
     {
         // Iniciar el temporizador cuando el juego comienza
         InvokeRepeating("ActualizarTemporizador", 0f, 1f); // Invocar ActualizarTemporizador cada segundo
         Puntos.puntos = 10f;
-        
+        dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
+        if (dialogos == null)
+        {
+            Debug.LogError("No se encontró el objeto con el script Dialogos en la escena.");
+        }
+
 
     }
     
@@ -44,49 +50,65 @@ Dialogos dialogos = new Dialogos();
             treinta.SetActive(false);   
             treintaydos.SetActive(false);   
             treintaycinco.SetActive(false);   
-
+            cuarenta.SetActive(false);   
             Debug.Log("Mañana");
             
             
         }
-        if(duracionTotal == 80f){ // 1:00 se restan 3 puntos 
+        if(duracionTotal == 83f){ // 1:23 aparecen dialogos 
+           dialogos.activarLavarropas();           
+        }  
+        if(duracionTotal == 80f){ // 1:20 aparecen dialogos
+            Debug.Log("dialogo pc");
            dialogos.activarComputadora();           
         }
-        if(duracionTotal == 83f){ // 1:00 se restan 3 puntos 
-           dialogos.activarLavarropas();           
-        }       
+        if(duracionTotal == 72f){ // 1:12 
+           veinticinco.SetActive(false);
+           treinta.SetActive(true);        
+        }  
         if(duracionTotal == 60f){ // 1:00 se restan 3 puntos 
            Puntos.puntos -= 3f;
            Debug.Log("Restar 3 puntos");
 
         }
         if(duracionTotal == 57f){ // 1:00 se restan 3 puntos 
-           dialogos.activarComputadora();           
+            dialogos.desactivarLavarropas();
+            dialogos.activarAire();        
+            dialogos.activarComputadora();     
         }
-        if(duracionTotal == 55f){ // 1:00 se restan 3 puntos 
-           dialogos.activarAire();           
+        if(duracionTotal == 28f){ // 1:00 se restan 3 puntos 
+            dialogos.desactivarMicroondas();
+            dialogos.desactivarComputadora();
+            dialogos.activarMicroondas();
+            dialogos.activarLavarropas();           
         }
-        if (duracionTotal <= 60f) // 1:00 es solTarde
+        if (duracionTotal <= 54f) // 1:00 es solTarde
         {
-            veinticinco.SetActive(false);            
+            treinta.SetActive(false);            
             solMañana.SetActive(false);
 
-            treinta.SetActive(true);
+            treintaydos.SetActive(true);
             solTarde.SetActive(true);
 
             Debug.Log("Tarde");
             
         }
-        if(duracionTotal == 30f){ //30 seg se restan 5 puntos
+
+        if(duracionTotal == 36f){ //36 
+            treintaydos.SetActive(false);    
+            treintaycinco.SetActive(true);
+        }
+
+        if(duracionTotal == 18){ //30 seg se restan 5 puntos
             Puntos.puntos -= 5f;
             Debug.Log("Restar 5 puntos");
         }
-        if (duracionTotal <= 30 && duracionTotal > 0f) // 00:30 seg es solNoche
+        if (duracionTotal <= 18 && duracionTotal > 0f) // 00:30 seg es solNoche
         {
   
-            treinta.SetActive(false);           
+            treintaycinco.SetActive(false);           
             solTarde.SetActive(false);
-            treintaydos.SetActive(true);
+            cuarenta.SetActive(true);
             solNoche.SetActive(true);
 
             Debug.Log("Noche");

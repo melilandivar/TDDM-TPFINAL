@@ -8,12 +8,13 @@ public class Dialogos : MonoBehaviour
     public GameObject computadora;
     public GameObject microondas;
     public GameObject lavarropas;
+    
     void Start()
     {
         computadora.SetActive(false);
-         lavarropas.SetActive(false);
-          aire.SetActive(false);
-           microondas.SetActive(false);
+        lavarropas.SetActive(false);
+        aire.SetActive(false);
+        microondas.SetActive(false);
         
     }
 
@@ -27,6 +28,7 @@ public class Dialogos : MonoBehaviour
         aire.SetActive(true);
     }
      public void activarComputadora(){
+         Debug.Log(computadora);
         computadora.SetActive(true);
     }
      public void activarMicroondas(){

@@ -9,10 +9,11 @@ public class Interactuar : MonoBehaviour
     public bool esLavarropas;
     private bool luzOnOff;
     private bool OnOff; 
-    Dialogos dialogos = new Dialogos();
+
+    private Dialogos dialogos;
     void Start()
     {
-
+  dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
         
     }
 
@@ -34,6 +35,7 @@ public class Interactuar : MonoBehaviour
         if(esMicroondas){              
             Debug.Log("microondas");     
             ModificarPuntos();
+            dialogos.desactivarMicroondas();
         }
         if(esLavarropas){              
             Debug.Log("lavarropas");     
@@ -43,6 +45,7 @@ public class Interactuar : MonoBehaviour
         if(esAire){              
             Debug.Log("aire");     
             ModificarPuntos();
+            dialogos.desactivarAire();
         }
     }
 /*
