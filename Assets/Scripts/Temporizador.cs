@@ -12,7 +12,8 @@ public class Temporizador : MonoBehaviour
     public GameObject treintaycinco;
     public GameObject cuarenta;
 
-    private Dialogos dialogos;
+    private Dialogos dialogos;  
+    private ControlarLuces controlarLuces;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class Temporizador : MonoBehaviour
         InvokeRepeating("ActualizarTemporizador", 0f, 1f); // Invocar ActualizarTemporizador cada segundo
         Puntos.puntos = 10f;
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
+        controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
         if (dialogos == null)
         {
             Debug.LogError("No se encontró el objeto con el script Dialogos en la escena.");
@@ -56,11 +58,15 @@ public class Temporizador : MonoBehaviour
             
         }
         if(duracionTotal == 83f){ // 1:23 aparecen dialogos 
-           dialogos.activarLavarropas();           
+           dialogos.activarLavarropas();          
+           controlarLuces.activarLuces("lavarropas");   
         }  
         if(duracionTotal == 80f){ // 1:20 aparecen dialogos
             Debug.Log("dialogo pc");
-           dialogos.activarComputadora();           
+           dialogos.activarComputadora(); 
+           controlarLuces.activarLuces("monitor");      
+           controlarLuces.activarLuces("gabinete");    
+           
         }
         if(duracionTotal == 72f){ // 1:12 
            veinticinco.SetActive(false);
@@ -73,12 +79,21 @@ public class Temporizador : MonoBehaviour
         }
         if(duracionTotal == 57f){ // 1:00 se restan 3 puntos 
             dialogos.desactivarLavarropas();
+            controlarLuces.desactivarLuces("lavarropas"); 
+            controlarLuces.activarLuces("aire"); 
+            controlarLuces.activarLuces("monitor");      
+            controlarLuces.activarLuces("gabinete");  
             dialogos.activarAire();        
             dialogos.activarComputadora();     
         }
         if(duracionTotal == 28f){ // 1:00 se restan 3 puntos 
-            dialogos.desactivarMicroondas();
+            dialogos.desactivarAire();
             dialogos.desactivarComputadora();
+            controlarLuces.desactivarLuces("aire"); 
+            controlarLuces.desactivarLuces("monitor");      
+            controlarLuces.desactivarLuces("gabinete");  
+            controlarLuces.activarLuces("microondas");      
+            controlarLuces.activarLuces("lavarropas");  
             dialogos.activarMicroondas();
             dialogos.activarLavarropas();           
         }

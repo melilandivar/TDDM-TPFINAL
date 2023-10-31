@@ -11,10 +11,11 @@ public class Interactuar : MonoBehaviour
     private bool OnOff; 
 
     private Dialogos dialogos;
+    private ControlarLuces controlarLuces;
     void Start()
     {
-  dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
-        
+        dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
+        controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
     }
 
     // Update is called once per frame
@@ -31,21 +32,26 @@ public class Interactuar : MonoBehaviour
             Debug.Log("compu");     
             ModificarPuntos();
             dialogos.desactivarComputadora();
+            controlarLuces.desactivarLuces("monitor"); 
+            controlarLuces.desactivarLuces("gabinete"); 
         }
         if(esMicroondas){              
             Debug.Log("microondas");     
             ModificarPuntos();
             dialogos.desactivarMicroondas();
+            controlarLuces.desactivarLuces("microondas"); 
         }
         if(esLavarropas){              
             Debug.Log("lavarropas");     
             ModificarPuntos();
             dialogos.desactivarLavarropas(); 
+            controlarLuces.desactivarLuces("lavarropas"); 
         }
         if(esAire){              
             Debug.Log("aire");     
             ModificarPuntos();
             dialogos.desactivarAire();
+            controlarLuces.desactivarLuces("aire"); 
         }
     }
 /*
