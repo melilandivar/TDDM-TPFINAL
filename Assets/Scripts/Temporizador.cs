@@ -77,7 +77,7 @@ public class Temporizador : MonoBehaviour
            Debug.Log("Restar 3 puntos");
 
         }
-        if(duracionTotal == 57f){ // 1:00 se restan 3 puntos 
+        if(duracionTotal == 57f){ // aparecen dialogos 
             dialogos.desactivarLavarropas();
             controlarLuces.desactivarLuces("lavarropas"); 
             controlarLuces.activarLuces("aire"); 
@@ -86,7 +86,7 @@ public class Temporizador : MonoBehaviour
             dialogos.activarAire();        
             dialogos.activarComputadora();     
         }
-        if(duracionTotal == 28f){ // 1:00 se restan 3 puntos 
+        if(duracionTotal == 28f){ // aparecen dialogos
             dialogos.desactivarAire();
             dialogos.desactivarComputadora();
             controlarLuces.desactivarLuces("aire"); 
