@@ -114,7 +114,7 @@ public class Temporizador : MonoBehaviour
             treintaycinco.SetActive(true);
         }
 
-        if(duracionTotal == 18){ //30 seg se restan 5 puntos
+        if(duracionTotal == 18){ //30 seg se restan 5 puntos cc
             Puntos.puntos -= 5f;
             Debug.Log("Restar 5 puntos");
         }
