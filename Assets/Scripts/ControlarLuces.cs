@@ -10,6 +10,7 @@ public class ControlarLuces : MonoBehaviour
     public GameObject microondasLuz;
     public GameObject lavarropasLuz;
     public GameObject ventiladorLuz;
+    public GameObject aspiradoraLuz;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class ControlarLuces : MonoBehaviour
         microondasLuz.SetActive(false);
         lavarropasLuz.SetActive(false);
         ventiladorLuz.SetActive(false);
+        aspiradoraLuz.SetActive(false);
 
     }
 
@@ -48,6 +50,9 @@ public class ControlarLuces : MonoBehaviour
         if(objeto == "ventilador"){
            ventiladorLuz.SetActive(true);
         }
+        if(objeto == "aspiradora"){
+           aspiradoraLuz.SetActive(true);
+        }
     }
     public void desactivarLuces(string objeto){
         if(objeto == "monitor"){
@@ -67,6 +72,9 @@ public class ControlarLuces : MonoBehaviour
         }
         if(objeto == "ventilador"){
            ventiladorLuz.SetActive(false);
+        }
+        if(objeto == "aspiradora"){
+           aspiradoraLuz.SetActive(false);
         }
     }
 }

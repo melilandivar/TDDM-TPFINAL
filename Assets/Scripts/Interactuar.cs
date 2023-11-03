@@ -7,8 +7,12 @@ public class Interactuar : MonoBehaviour
     public bool esMicroondas;
     public bool esAire;
     public bool esLavarropas;
+    public bool esAspiradora;
+    public bool esVentilador;
     private bool luzOnOff;
     private bool OnOff; 
+
+    private float puntosElectricos;
 
     private Dialogos dialogos;
     private ControlarLuces controlarLuces;
@@ -16,6 +20,7 @@ public class Interactuar : MonoBehaviour
     {
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
         controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
+        puntosElectricos = 0f;
     }
 
     // Update is called once per frame
@@ -53,6 +58,18 @@ public class Interactuar : MonoBehaviour
             dialogos.desactivarAire();
             controlarLuces.desactivarLuces("aire"); 
         }
+        if(esAspiradora){              
+            Debug.Log("aspiradora");     
+            ModificarPuntos();
+            dialogos.desactivarAspiradora();
+            controlarLuces.desactivarLuces("aspiradora"); 
+        }
+        if(esVentilador){              
+            Debug.Log("ventilador");     
+            ModificarPuntos();
+            dialogos.desactivarAspiradora();
+            controlarLuces.desactivarLuces("ventilador"); 
+        }
     }
 /*
     void OnOffLuz(){
@@ -89,11 +106,11 @@ public class Interactuar : MonoBehaviour
     }
     
     void sumar(float numero){
-        Puntos.puntos += 3f;
+        puntosElectricos += numero;
     }
     
     void restar(float numero){
-        Puntos.puntos -= numero;
+        puntosElectricos -= numero;
     }
 
     void ModificarPuntos(){
@@ -111,11 +128,11 @@ public class Interactuar : MonoBehaviour
         }
         if(esMicroondas){        
             if(OnOff == true){
-                this.sumar(2);
+                this.sumar(4);
                 Debug.Log("sumar microondas");
             }
             if(OnOff == false){
-                this.restar(2);
+                this.restar(4);
                 Debug.Log("restar microondas");
             }
         }
@@ -131,12 +148,22 @@ public class Interactuar : MonoBehaviour
         }
         if(esAire){        
             if(OnOff == true){
-                this.sumar(2);
+                this.sumar(5);
                 Debug.Log("sumar aire");
             }
             if(OnOff == false){
-                this.restar(2);
+                this.restar(5);
                 Debug.Log("restar aire");
+            }
+        }
+        if(esAspiradora){        
+            if(OnOff == true){
+                this.sumar(4);
+                Debug.Log("sumar aspiradora");
+            }
+            if(OnOff == false){
+                this.restar(4);
+                Debug.Log("restar aspiradora");
             }
         }
 

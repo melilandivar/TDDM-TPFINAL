@@ -19,6 +19,7 @@ public class Temporizador : MonoBehaviour
     {
         // Iniciar el temporizador cuando el juego comienza
         InvokeRepeating("ActualizarTemporizador", 0f, 1f); // Invocar ActualizarTemporizador cada segundo
+        //Puntos para el estres
         Puntos.puntos = 10f;
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
         controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
@@ -38,12 +39,10 @@ public class Temporizador : MonoBehaviour
 
     private void ActualizarTemporizador()
     {
-        // Acceder a la variable puntos del script Puntos
-      //  Puntos.puntos -= 1f; 
         duracionTotal -= 1f; // Reducir 1 segundo del temporizador
         Debug.Log("puntos" + Puntos.puntos);
 
-        // Verificar el tiempo actual y activar los objetos correspondientes
+        //___________________________________________________  MAÑANA
         if (duracionTotal <= 90f) // 1:30 es solMañana
         {
             solMañana.SetActive(true);
@@ -57,12 +56,12 @@ public class Temporizador : MonoBehaviour
             
             
         }
-        if(duracionTotal == 83f){ // 1:23 aparecen dialogos 
+        if(duracionTotal == 85f){ // 1:25 aparecen dialogos 
            dialogos.activarLavarropas();          
            controlarLuces.activarLuces("lavarropas");   
         }  
-        if(duracionTotal == 80f){ // 1:20 aparecen dialogos
-            Debug.Log("dialogo pc");
+        if(duracionTotal == 84f){ // 1:24 aparecen dialogos
+           Debug.Log("dialogo pc");
            dialogos.activarComputadora(); 
            controlarLuces.activarLuces("monitor");      
            controlarLuces.activarLuces("gabinete");    
@@ -72,6 +71,7 @@ public class Temporizador : MonoBehaviour
            veinticinco.SetActive(false);
            treinta.SetActive(true);        
         }  
+        //___________________________________________________  TARDE
         if(duracionTotal == 60f){ // 1:00 se restan 3 puntos 
            Puntos.puntos -= 3f;
            Debug.Log("Restar 3 puntos");

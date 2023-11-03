@@ -8,6 +8,8 @@ public class Dialogos : MonoBehaviour
     public GameObject computadora;
     public GameObject microondas;
     public GameObject lavarropas;
+    public GameObject aspiradora;
+    public GameObject ventilador;
     
     void Start()
     {
@@ -15,6 +17,8 @@ public class Dialogos : MonoBehaviour
         lavarropas.SetActive(false);
         aire.SetActive(false);
         microondas.SetActive(false);
+        aspiradora.SetActive(false);
+        ventilador.SetActive(false);
         
     }
 
@@ -37,7 +41,12 @@ public class Dialogos : MonoBehaviour
      public void activarLavarropas(){
         lavarropas.SetActive(true);
     }
-
+    public void activarAspiradora(){
+        aspiradora.SetActive(true);
+    }
+    public void activarVentilador(){
+        ventilador.SetActive(true);
+    }
       public void desactivarAire(){
         aire.SetActive(false);
     }
@@ -49,5 +58,11 @@ public class Dialogos : MonoBehaviour
     }
       public void desactivarLavarropas(){
         lavarropas.SetActive(false);
+    }
+    public void desactivarAspiradora(){
+        aspiradora.SetActive(false);
+    }
+    public void desactivarVentilador(){
+        ventilador.SetActive(false);
     }
 }
