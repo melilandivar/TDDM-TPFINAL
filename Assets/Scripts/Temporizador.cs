@@ -6,21 +6,21 @@ public class Temporizador : MonoBehaviour
     public GameObject solMañana;
     public GameObject solTarde;
     public GameObject solNoche;
-    public GameObject veinticinco;
     public GameObject treinta;
     public GameObject treintaydos;
     public GameObject treintaycinco;
     public GameObject cuarenta;
-    public AudioSource audio;
+    //public AudioSource audio;
 
 
     private Dialogos dialogos;  
     private ControlarLuces controlarLuces;
     private ControladorAudios controlAudios;
+    private Interactuar interactuar;
 
     private void Awake()
     {
-        controlAudios = FindObjectOfType<ControladorAudios>();
+       
     }
 
     private void Start()
@@ -31,12 +31,8 @@ public class Temporizador : MonoBehaviour
         Puntos.puntos = 10f;
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
         controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
-        if (dialogos == null)
-        {
-            Debug.LogError("No se encontró el objeto con el script Dialogos en la escena.");
-        }
-
-
+        controlAudios = FindObjectOfType<ControladorAudios>(); // Encuentra el objeto con el script ControlarLuces
+        interactuar = FindObjectOfType<Interactuar>(); // Encuentra el objeto con el script ControlarLuces
     }
     
         // Update is called once per frame
@@ -51,19 +47,14 @@ public class Temporizador : MonoBehaviour
         Debug.Log("puntos" + Puntos.puntos);
 
         //___________________________________________________  MAÑANA
-        if (duracionTotal <= 90f) // 1:30 es solMañana
+        if (duracionTotal <= 90f && duracionTotal >=60f) // 1:30 es solMañana
         {
             solMañana.SetActive(true);
-            veinticinco.SetActive(true);
-            controlAudios.seleccionAudio(0, 0.5f);
-
-
-            treinta.SetActive(false);   
+          //  controlAudios.seleccionAudio(0, 0.5f);
+            treinta.SetActive(true);   
             treintaydos.SetActive(false);   
             treintaycinco.SetActive(false);   
-            cuarenta.SetActive(false);   
-            Debug.Log("Mañana");
-            
+            cuarenta.SetActive(false);        
             
         }
         if(duracionTotal == 85f){ // 1:25 aparecen dialogos 
@@ -77,17 +68,34 @@ public class Temporizador : MonoBehaviour
            controlarLuces.activarLuces("gabinete");    
            
         }
-        if(duracionTotal == 72f){ // 1:12 
-           veinticinco.SetActive(false);
-           treinta.SetActive(true);        
-        }  
+        //Resto puntos 
+        if(duracionTotal == 75f){
+            Puntos.puntos -=3;
+        }
         //___________________________________________________  TARDE
         if(duracionTotal == 60f){ // 1:00 se restan 3 puntos 
-           Puntos.puntos -= 3f;
-           Debug.Log("Restar 3 puntos");
+           //Resto puntos
+           Puntos.puntos -= 6f;
+           Debug.Log("Tarde");
+           Debug.Log("Restar 6 puntos");
+           if(!interactuar.computadoraOn){
+                //Resto puntos por no trabajar en la mañana
+                Puntos.puntos -= 4f;
+           }
+           if(!interactuar.lavarropasOn){
+                //Resto puntos por no limpiar en la mañana
+                Puntos.puntos -= 2f;
+           }
 
         }
-        if(duracionTotal == 57f){ // aparecen dialogos 
+        if(duracionTotal<=60f && duracionTotal >=30f){
+           treinta.SetActive(false);  
+           //Hacen 35 grados
+           treintaycinco.SetActive(true);   
+           
+
+        }
+        if(duracionTotal == 58f){ // aparecen dialogos 
             dialogos.desactivarLavarropas();
             controlarLuces.desactivarLuces("lavarropas"); 
             controlarLuces.activarLuces("aire"); 
@@ -96,6 +104,31 @@ public class Temporizador : MonoBehaviour
             dialogos.activarAire();        
             dialogos.activarComputadora();     
         }
+        if(duracionTotal <= 40f && duracionTotal >=30f){ // evaluamos si sigue sin prender el aire 
+            if(!interactuar.aireOn){ //si el aire nunca se prendio 
+                cuarenta.SetActive(true);
+                treintaycinco.SetActive(false);
+            }
+        }
+        if(duracionTotal == 30f){ // 0:30 es solNoche
+           //Resto puntos
+           Puntos.puntos -= 6f;
+           Debug.Log("Restar 6 puntos");
+           if(!interactuar.computadoraOn){
+                //Resto puntos por no trabajar en la tarde
+                Puntos.puntos -= 4f;
+           }
+
+        }
+       if (duracionTotal <= 30f) // 00:30 es solNoche
+        {
+            treintaycinco.SetActive(false);       
+            cuarenta.SetActive(false);     
+            solTarde.SetActive(false);
+
+            treintaydos.SetActive(true);
+            solNoche.SetActive(true);         
+        }
         if(duracionTotal == 28f){ // aparecen dialogos
             dialogos.desactivarAire();
             dialogos.desactivarComputadora();
@@ -103,46 +136,26 @@ public class Temporizador : MonoBehaviour
             controlarLuces.desactivarLuces("monitor");      
             controlarLuces.desactivarLuces("gabinete");  
             controlarLuces.activarLuces("microondas");      
-            controlarLuces.activarLuces("lavarropas");  
+            controlarLuces.activarLuces("aspiradora");  
             dialogos.activarMicroondas();
-            dialogos.activarLavarropas();           
+            dialogos.activarAspiradora();           
         }
-        if (duracionTotal <= 54f) // 1:00 es solTarde
+        if (duracionTotal <=5f) // El tiempo ha terminado
         {
-            treinta.SetActive(false);            
-            solMañana.SetActive(false);
-
-            treintaydos.SetActive(true);
-            solTarde.SetActive(true);
-
-            Debug.Log("Tarde");
-            
+           if(!interactuar.microondasOn){
+                //Resto puntos por no cocinar
+                Puntos.puntos -= 5f;
+           }
+           if(!interactuar.aspiradoraOn){
+                //Resto puntos por no limpiar
+                Puntos.puntos -= 2f;
+           }
         }
 
-        if(duracionTotal == 36f){ //36 
-            treintaydos.SetActive(false);    
-            treintaycinco.SetActive(true);
-        }
-
-        if(duracionTotal == 18){ //30 seg se restan 5 puntos cc
-            Puntos.puntos -= 5f;
-            Debug.Log("Restar 5 puntos");
-        }
-        if (duracionTotal <= 18 && duracionTotal > 0f) // 00:30 seg es solNoche
-        {
-  
-            treintaycinco.SetActive(false);           
-            solTarde.SetActive(false);
-            cuarenta.SetActive(true);
-            solNoche.SetActive(true);
-
-            Debug.Log("Noche");
-
-          
-        }
-        if (duracionTotal <=0f) // El tiempo ha terminado
-        {
-            //Pantalla perder
-        }
+    }
+    public void disminuirTemperatura(){
+        cuarenta.SetActive(false);
+        treintaycinco.SetActive(true);
+        interactuar.aireOn = true;
     }
 }

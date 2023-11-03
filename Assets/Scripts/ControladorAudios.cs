@@ -17,6 +17,11 @@ public class ControladorAudios : MonoBehaviour
     {
         controlAudio.PlayOneShot(audios[indice], volumen); //PlayOneShot permite controlar el Volumen del audio
     }
+    public void PausarAudio(int indice)
+    {
+       controlAudio.Pause();
+    }
+
 
     
 }

@@ -11,13 +11,20 @@ public class Interactuar : MonoBehaviour
     public bool esVentilador;
     private bool luzOnOff;
     private bool OnOff; 
-
+    public bool aireOn;
+    public bool microondasOn;
+    public bool lavarropasOn;
+    public bool aspiradoraOn;
+    public bool ventiladorOn;
+    public bool computadoraOn;
     private float puntosElectricos;
 
     private Dialogos dialogos;
     private ControlarLuces controlarLuces;
 
     private ControladorAudios controlAudios;
+    private Temporizador temporizador;
+
     private void Awake()
     {
         controlAudios = FindObjectOfType<ControladorAudios>();
@@ -27,7 +34,9 @@ public class Interactuar : MonoBehaviour
     {
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
         controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
+        temporizador = FindObjectOfType<Temporizador>(); // Encuentra el objeto con el script ControlarLuces
         puntosElectricos = 0f;
+        aireOn= false;
     }
 
     // Update is called once per frame
@@ -40,39 +49,49 @@ public class Interactuar : MonoBehaviour
         if(luz){
       //      OnOffLuz();
         }
-        if(esCompu){              
+        if(esCompu){             
+            computadoraOn =! computadoraOn; 
             Debug.Log("compu");     
             ModificarPuntos();
             dialogos.desactivarComputadora();
             controlarLuces.desactivarLuces("monitor"); 
             controlarLuces.desactivarLuces("gabinete"); 
         }
-        if(esMicroondas){              
+        if(esMicroondas){         
+            microondasOn =! microondasOn;     
             Debug.Log("microondas");     
             ModificarPuntos();
             dialogos.desactivarMicroondas();
             controlarLuces.desactivarLuces("microondas"); 
         }
         if(esLavarropas){              
+            lavarropasOn =! lavarropasOn;
             Debug.Log("lavarropas");     
             ModificarPuntos();
             dialogos.desactivarLavarropas(); 
             controlarLuces.desactivarLuces("lavarropas"); 
         }
-        if(esAire){              
+        if(esAire){            
+            aireOn =! aireOn;  
             Debug.Log("aire");     
             ModificarPuntos();
             dialogos.desactivarAire();
             controlarLuces.desactivarLuces("aire");
-            controlAudios.seleccionAudio(3, 0.5f); // Arreglo del audio, posicion 3.
+            if(aireOn){
+                temporizador.disminuirTemperatura();
+            }
+         //   controlarAudio();
+        //    controlAudios.seleccionAudio(3, 0.5f); // Arreglo del audio, posicion 3.
         }
-        if(esAspiradora){              
+        if(esAspiradora){    
+            aspiradoraOn =! aspiradoraOn;          
             Debug.Log("aspiradora");     
             ModificarPuntos();
             dialogos.desactivarAspiradora();
             controlarLuces.desactivarLuces("aspiradora"); 
         }
-        if(esVentilador){              
+        if(esVentilador){  
+            ventiladorOn =! ventiladorOn;            
             Debug.Log("ventilador");     
             ModificarPuntos();
             dialogos.desactivarAspiradora();
@@ -90,27 +109,14 @@ public class Interactuar : MonoBehaviour
         }
     }
     */
-    void ReproducirSonido(string nombreAudio)
-    {
-        GameObject audioObjeto = GameObject.Find(nombreAudio);
-        Debug.Log(audioObjeto);
-        if (audioObjeto != null)
-        {
-            AudioSource audioSource = audioObjeto.GetComponent<AudioSource>();
-            if (audioSource != null)
-            {
-              
-                    audioSource.Play();
-            }
-            else
-            {
-                Debug.LogWarning("El objeto de audio no tiene un componente AudioSource.");
-            }
+    void controlarAudio(){
+        if(aireOn){
+           // controlAudios.seleccionAudio(3, 0.5f); // Arreglo del audio, posicion 3.
+        } else {
+        //    controlAudios.PausarAudio(3); // Arreglo del audio, posicion 3.
         }
-        else
-        {
-            Debug.LogWarning("Objeto de audio no encontrado: " + nombreAudio);
-        }
+           
+        
     }
     
     void sumar(float numero){
