@@ -44,7 +44,7 @@ public class Interactuar : MonoBehaviour
     {
         //Se produce corte electrico
         if(puntosElectricos>=10){
-            puntos = 0;
+         //   puntos = 0;
 
         }
     }
