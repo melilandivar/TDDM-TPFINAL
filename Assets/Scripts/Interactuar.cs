@@ -16,6 +16,13 @@ public class Interactuar : MonoBehaviour
 
     private Dialogos dialogos;
     private ControlarLuces controlarLuces;
+
+    private ControladorAudios controlAudios;
+    private void Awake()
+    {
+        controlAudios = FindObjectOfType<ControladorAudios>();
+    }
+
     void Start()
     {
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
@@ -56,7 +63,8 @@ public class Interactuar : MonoBehaviour
             Debug.Log("aire");     
             ModificarPuntos();
             dialogos.desactivarAire();
-            controlarLuces.desactivarLuces("aire"); 
+            controlarLuces.desactivarLuces("aire");
+            controlAudios.seleccionAudio(3, 0.5f); // Arreglo del audio, posicion 3.
         }
         if(esAspiradora){              
             Debug.Log("aspiradora");     

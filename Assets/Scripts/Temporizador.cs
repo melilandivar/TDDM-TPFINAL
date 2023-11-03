@@ -11,9 +11,17 @@ public class Temporizador : MonoBehaviour
     public GameObject treintaydos;
     public GameObject treintaycinco;
     public GameObject cuarenta;
+    public AudioSource audio;
+
 
     private Dialogos dialogos;  
     private ControlarLuces controlarLuces;
+    private ControladorAudios controlAudios;
+
+    private void Awake()
+    {
+        controlAudios = FindObjectOfType<ControladorAudios>();
+    }
 
     private void Start()
     {
@@ -47,7 +55,9 @@ public class Temporizador : MonoBehaviour
         {
             solMañana.SetActive(true);
             veinticinco.SetActive(true);
-           
+            controlAudios.seleccionAudio(0, 0.5f);
+
+
             treinta.SetActive(false);   
             treintaydos.SetActive(false);   
             treintaycinco.SetActive(false);   
