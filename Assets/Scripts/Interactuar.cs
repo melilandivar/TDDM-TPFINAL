@@ -42,7 +42,11 @@ public class Interactuar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-   // Debug.Log(compu);
+        //Se produce corte electrico
+        if(puntosElectricos>=10){
+            puntos = 0;
+
+        }
     }
     public void Accionar(){
        // Debug.Log("accionar llamado");
