@@ -31,7 +31,7 @@ public class Temporizador : MonoBehaviour
         Puntos.puntos = 10f;
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
         controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
-        controlAudios = FindObjectOfType<ControladorAudios>(); // Encuentra el objeto con el script ControlarLuces
+     //   controlAudios = FindObjectOfType<ControladorAudios>(); // Encuentra el objeto con el script ControlarLuces
         interactuar = FindObjectOfType<Interactuar>(); // Encuentra el objeto con el script ControlarLuces
     }
     

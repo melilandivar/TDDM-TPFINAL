@@ -22,7 +22,7 @@ public class InteraccionMouse : MonoBehaviour
                 // Si el objeto clickeado tiene el componente Interactuar
                 if (interactuarComponent != null)
                 {
-                    // Llama a la función OnOffLuz() del componente Interactuar
+                    Debug.Log("Por llamar a accionar");
                     interactuarComponent.Accionar();
                 }
             }

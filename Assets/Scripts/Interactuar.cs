@@ -29,7 +29,7 @@ public class Interactuar : MonoBehaviour
 
     private void Awake()
     {
-        controlAudios = FindObjectOfType<ControladorAudios>();
+      //  controlAudios = FindObjectOfType<ControladorAudios>();
     }
 
     void Start()
@@ -45,22 +45,17 @@ public class Interactuar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Puntos electricos: "+puntosElectricos);
+     //   Debug.Log("Puntos electricos: "+puntosElectricos);
         //Se produce corte electrico
         if (puntosElectricos>=10){
             //   puntos = 0;
             
-            camSeqController.InitSequence();
+       //     camSeqController.InitSequence();
         }
     }
     public void Accionar(){
-        Debug.Log("Es microondas"+esMicroondas);
-
-
-       // Debug.Log("accionar llamado");
-        if(luz){
-      //      OnOffLuz();
-        }
+        Debug.Log("accionar llamado");
+  
         if(esCompu){             
             computadoraOn =! computadoraOn; 
             Debug.Log("compu");     
