@@ -128,61 +128,63 @@ public class Interactuar : MonoBehaviour
     
     void sumar(float numero){
         puntosElectricos += numero;
+        Debug.Log("Puntos electricos: "+puntosElectricos);
     }
     
     void restar(float numero){
         puntosElectricos -= numero;
+        Debug.Log("Puntos electricos: "+puntosElectricos);
     }
 
     void ModificarPuntos(){
         OnOff = !OnOff;
         if(esCompu){        
-            if(OnOff == true){
+            if(computadoraOn == true){
                 this.sumar(3);
                 Debug.Log("sumar pc");
            //     ReproducirSonido("PcSound");
             }
-            if(OnOff == false){
+            if(computadoraOn == false){
                 this.restar(3);
                 Debug.Log("restar pc");
             }
         }
         if(esMicroondas){        
-            if(OnOff == true){
+            if(microondasOn == true){
                 this.sumar(4);
                 Debug.Log("sumar microondas");
             }
-            if(OnOff == false){
+            if(microondasOn == false){
                 this.restar(4);
                 Debug.Log("restar microondas");
             }
         }
         if(esLavarropas){        
-            if(OnOff == true){
+            if(lavarropasOn == true){
                 this.sumar(4);
                 Debug.Log("sumar lavarropas");
             }
-            if(OnOff == false){
+            if(lavarropasOn == false){
                 this.restar(2);
                 Debug.Log("restar lavarropas");
             }
         }
         if(esAire){        
-            if(OnOff == true){
+            if(aireOn == true){
                 this.sumar(5);
                 Debug.Log("sumar aire");
             }
-            if(OnOff == false){
+            if(aireOn == false){
                 this.restar(5);
                 Debug.Log("restar aire");
             }
         }
         if(esAspiradora){        
-            if(OnOff == true){
+            if(aspiradoraOn == true){
                 this.sumar(4);
                 Debug.Log("sumar aspiradora");
             }
-            if(OnOff == false){
+            if(aspiradoraOn == false){
                 this.restar(4);
                 Debug.Log("restar aspiradora");
             }
