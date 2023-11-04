@@ -10,7 +10,7 @@ public class Temporizador : MonoBehaviour
     public GameObject treintaydos;
     public GameObject treintaycinco;
     public GameObject cuarenta;
-    //public AudioSource audio;
+    public AudioSource audio;
 
 
     private Dialogos dialogos;  
@@ -18,10 +18,9 @@ public class Temporizador : MonoBehaviour
     private ControladorAudios controlAudios;
     private Interactuar interactuar;
 
-    private void Awake()
-    {
-       
-    }
+    private bool audioReproducido = false;
+
+
 
     private void Start()
     {
@@ -31,8 +30,9 @@ public class Temporizador : MonoBehaviour
         Puntos.puntos = 10f;
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
         controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
-     //   controlAudios = FindObjectOfType<ControladorAudios>(); // Encuentra el objeto con el script ControlarLuces
+      controlAudios = FindObjectOfType<ControladorAudios>(); // Encuentra el objeto con el script ControlarLuces
         interactuar = FindObjectOfType<Interactuar>(); // Encuentra el objeto con el script ControlarLuces
+        audioReproducido = false;
     }
     
         // Update is called once per frame
@@ -49,15 +49,21 @@ public class Temporizador : MonoBehaviour
         //___________________________________________________  MAÑANA
         if (duracionTotal <= 90f && duracionTotal >=60f) // 1:30 es solMañana
         {
-            solMañana.SetActive(true);
-          //  controlAudios.seleccionAudio(0, 0.5f);
+            solMañana.SetActive(true);          
             treinta.SetActive(true);   
             treintaydos.SetActive(false);   
             treintaycinco.SetActive(false);   
-            cuarenta.SetActive(false);        
-            
+            cuarenta.SetActive(false);
+           
+            if (!audioReproducido)
+            {
+                controlAudios.ReproducirAudio(0);
+                audioReproducido = true;
+            }
+
         }
-        if(duracionTotal == 85f){ // 1:25 aparecen dialogos 
+        
+        if (duracionTotal == 85f){ // 1:25 aparecen dialogos 
            dialogos.activarLavarropas();          
            controlarLuces.activarLuces("lavarropas");   
         }  
@@ -86,6 +92,11 @@ public class Temporizador : MonoBehaviour
                 //Resto puntos por no limpiar en la mañana
                 Puntos.puntos -= 2f;
            }
+            if (audioReproducido)
+            {
+                controlAudios.PausarAudio(0);
+                controlAudios.ReproducirAudio(1);               
+            }
 
         }
         if(duracionTotal<=60f && duracionTotal >=30f){
@@ -118,6 +129,11 @@ public class Temporizador : MonoBehaviour
                 //Resto puntos por no trabajar en la tarde
                 Puntos.puntos -= 4f;
            }
+            if (audioReproducido)
+            {
+                controlAudios.PausarAudio(1);
+                controlAudios.ReproducirAudio(2);
+            }
 
         }
        if (duracionTotal <= 30f) // 00:30 es solNoche
@@ -127,7 +143,8 @@ public class Temporizador : MonoBehaviour
             solTarde.SetActive(false);
 
             treintaydos.SetActive(true);
-            solNoche.SetActive(true);         
+            solNoche.SetActive(true);
+            
         }
         if(duracionTotal == 28f){ // aparecen dialogos
             dialogos.desactivarAire();

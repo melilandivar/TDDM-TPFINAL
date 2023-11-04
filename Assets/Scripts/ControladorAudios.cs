@@ -12,16 +12,21 @@ public class ControladorAudios : MonoBehaviour
         controlAudio = GetComponent<AudioSource>();
     }
 
-    //Este metodo nos permite controlar el Indice que seria el numero del array, y el volumen del sonido para ser utilizado en otro Script. 
+  //QUIZAS EL PLAYONESHOT se puede usar para los sonidos de los objetos, ya que deberian ser mas cortos
     public void seleccionAudio (int indice, float volumen)
     {
         controlAudio.PlayOneShot(audios[indice], volumen); //PlayOneShot permite controlar el Volumen del audio
     }
+
+    // Este método permite reproducir un audio específico del arreglo.
+    public void ReproducirAudio(int indice)
+    {
+        controlAudio.clip = audios[indice];
+        controlAudio.Play();
+    }
     public void PausarAudio(int indice)
     {
-       controlAudio.Pause();
+        controlAudio.clip = audios[indice];
+        controlAudio.Pause();
     }
-
-
-    
 }
