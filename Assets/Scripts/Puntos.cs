@@ -24,7 +24,7 @@ public class Puntos : MonoBehaviour
 
     void actualizarEstadoAnimo()
     {
-    //    Debug.Log(puntos);
+        Debug.Log("Puntos: "+puntos);
         if (puntos >= 7 && puntos <= 10 )
         {
             Confortable.SetActive(true);

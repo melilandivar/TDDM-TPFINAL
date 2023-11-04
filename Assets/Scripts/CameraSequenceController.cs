@@ -6,12 +6,13 @@ using UnityEngine;
 public class CameraSequenceController : MonoBehaviour
 {
     public Camera[] cameras; // Asigna las cámaras en el Inspector
-    private int currentCameraIndex = 0;
+    private int currentCameraIndex;
 
     void Start()
     {
+        cameras = FindObjectsOfType<Camera>();
+        currentCameraIndex = 0;
         // Activa la primera cámara de la secuencia
-        ActivateCamera(currentCameraIndex);
     }
 
     // Activa una cámara y desactiva las demás
@@ -24,7 +25,7 @@ public class CameraSequenceController : MonoBehaviour
     }
 
     // Método para avanzar a la siguiente cámara
-    public void SwitchToNextCamera()
+    /*public void SwitchToNextCamera()
     {
         // Desactiva la cámara actual
         cameras[currentCameraIndex].gameObject.SetActive(false);
@@ -41,14 +42,13 @@ public class CameraSequenceController : MonoBehaviour
 
         // Activa la siguiente cámara
         ActivateCamera(currentCameraIndex);
-    }
+    }*/
 
     public void InitSequence()
     {
         for(int i = currentCameraIndex; i < cameras.Length;i++)
         {
-            Debug.Log("Activando camara: "+i);
-            this.ActivateCamera(i);
+            ActivateCamera(i);
         }
     }
 }
