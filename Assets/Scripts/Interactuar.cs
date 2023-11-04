@@ -25,6 +25,8 @@ public class Interactuar : MonoBehaviour
     private ControladorAudios controlAudios;
     private Temporizador temporizador;
 
+    private CameraSequenceController camSeqController;
+
     private void Awake()
     {
         controlAudios = FindObjectOfType<ControladorAudios>();
@@ -35,6 +37,7 @@ public class Interactuar : MonoBehaviour
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
         controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
         temporizador = FindObjectOfType<Temporizador>(); // Encuentra el objeto con el script ControlarLuces
+        camSeqController = FindObjectOfType<CameraSequenceController>();
         puntosElectricos = 0f;
         aireOn= false;
     }
@@ -44,8 +47,9 @@ public class Interactuar : MonoBehaviour
     {
         //Se produce corte electrico
         if(puntosElectricos>=10){
-         //   puntos = 0;
-
+            //   puntos = 0;
+            Debug.Log("init sequence");
+            camSeqController.InitSequence();
         }
     }
     public void Accionar(){

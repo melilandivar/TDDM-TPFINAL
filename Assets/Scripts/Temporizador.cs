@@ -44,7 +44,7 @@ public class Temporizador : MonoBehaviour
     private void ActualizarTemporizador()
     {
         duracionTotal -= 1f; // Reducir 1 segundo del temporizador
-        Debug.Log("puntos" + Puntos.puntos);
+        //Debug.Log("puntos" + Puntos.puntos);
 
         //___________________________________________________  MAÑANA
         if (duracionTotal <= 90f && duracionTotal >=60f) // 1:30 es solMañana
