@@ -26,6 +26,7 @@ public class Interactuar : MonoBehaviour
     private Temporizador temporizador;
 
     private CameraSequenceController camSeqController;
+    private ControladorCamaras controladorCamaras;
               
 
     void Start()
@@ -35,6 +36,7 @@ public class Interactuar : MonoBehaviour
       //  cambiarEscenas = FindObjectOfType<CambiarEscenas>(); // Encuentra el objeto con el script CambiarEscenas
         temporizador = FindObjectOfType<Temporizador>(); // Encuentra el objeto con el script ControlarLuces
         camSeqController = FindObjectOfType<CameraSequenceController>();
+        controladorCamaras = FindObjectOfType<ControladorCamaras>();
        // controlAudios = FindObjectOfType<ControladorAudios>();
         puntosElectricos = 0f;
         aireOn= false;      
@@ -86,6 +88,10 @@ public class Interactuar : MonoBehaviour
             controlarLuces.desactivarLuces("aire");
             if(aireOn){
                 temporizador.disminuirTemperatura();
+                controladorCamaras.activarCamaras();
+
+            } else if (!aireOn){
+                controladorCamaras.desactivarCamaras();
             }
          //   controlarAudio();
          //controlAudios.seleccionAudio(3, 0.5f); // Arreglo del audio, posicion 3.

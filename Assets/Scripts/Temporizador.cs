@@ -11,6 +11,8 @@ public class Temporizador : MonoBehaviour
     public GameObject treintaycinco;
     public GameObject cuarenta;
     public AudioSource audio;
+    public GameObject fondoDia;
+    public GameObject fondoNoche;
 
 
     private Dialogos dialogos;  
@@ -30,7 +32,7 @@ public class Temporizador : MonoBehaviour
         Puntos.puntos = 10f;
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
         controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
-      controlAudios = FindObjectOfType<ControladorAudios>(); // Encuentra el objeto con el script ControlarLuces
+        controlAudios = FindObjectOfType<ControladorAudios>(); // Encuentra el objeto con el script ControlarLuces
         interactuar = FindObjectOfType<Interactuar>(); // Encuentra el objeto con el script ControlarLuces
         audioReproducido = false;
     }
@@ -103,7 +105,8 @@ public class Temporizador : MonoBehaviour
            treinta.SetActive(false);  
            //Hacen 35 grados
            treintaycinco.SetActive(true);   
-           
+           solMañana.SetActive(false);
+           solTarde.SetActive(true);
 
         }
         if(duracionTotal == 58f){ // aparecen dialogos 
@@ -141,8 +144,10 @@ public class Temporizador : MonoBehaviour
             treintaycinco.SetActive(false);       
             cuarenta.SetActive(false);     
             solTarde.SetActive(false);
+            fondoDia.SetActive(false);
 
             treintaydos.SetActive(true);
+            fondoNoche.SetActive(true);
             solNoche.SetActive(true);
             
         }
