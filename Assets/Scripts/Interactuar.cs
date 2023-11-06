@@ -26,11 +26,7 @@ public class Interactuar : MonoBehaviour
     private Temporizador temporizador;
 
     private CameraSequenceController camSeqController;
-
-    private void Awake()
-    {
-      //  controlAudios = FindObjectOfType<ControladorAudios>();
-    }
+              
 
     void Start()
     {
@@ -38,8 +34,9 @@ public class Interactuar : MonoBehaviour
         controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
         temporizador = FindObjectOfType<Temporizador>(); // Encuentra el objeto con el script ControlarLuces
         camSeqController = FindObjectOfType<CameraSequenceController>();
+       // controlAudios = FindObjectOfType<ControladorAudios>();
         puntosElectricos = 0f;
-        aireOn= false;
+        aireOn= false;      
     }
 
     // Update is called once per frame
@@ -62,7 +59,9 @@ public class Interactuar : MonoBehaviour
             ModificarPuntos();
             dialogos.desactivarComputadora();
             controlarLuces.desactivarLuces("monitor"); 
-            controlarLuces.desactivarLuces("gabinete"); 
+            controlarLuces.desactivarLuces("gabinete");
+            //controlarAudio();
+           
         }
         if(esMicroondas){         
             microondasOn =! microondasOn;     
@@ -88,7 +87,7 @@ public class Interactuar : MonoBehaviour
                 temporizador.disminuirTemperatura();
             }
          //   controlarAudio();
-        //    controlAudios.seleccionAudio(3, 0.5f); // Arreglo del audio, posicion 3.
+         //controlAudios.seleccionAudio(3, 0.5f); // Arreglo del audio, posicion 3.
         }
         if(esAspiradora){    
             aspiradoraOn =! aspiradoraOn;          
@@ -117,13 +116,15 @@ public class Interactuar : MonoBehaviour
     }
     */
     void controlarAudio(){
-        if(aireOn){
-           // controlAudios.seleccionAudio(3, 0.5f); // Arreglo del audio, posicion 3.
-        } else {
-        //    controlAudios.PausarAudio(3); // Arreglo del audio, posicion 3.
+        if(computadoraOn)
+        {
+          //   controlAudios.ReproducirAudio(3);
         }
-           
-        
+        else {
+            //    controlAudios.PausarAudio(3);
+        }
+       
+
     }
     
     void sumar(float numero){
