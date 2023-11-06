@@ -32,6 +32,7 @@ public class Interactuar : MonoBehaviour
     {
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
         controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
+      //  cambiarEscenas = FindObjectOfType<CambiarEscenas>(); // Encuentra el objeto con el script CambiarEscenas
         temporizador = FindObjectOfType<Temporizador>(); // Encuentra el objeto con el script ControlarLuces
         camSeqController = FindObjectOfType<CameraSequenceController>();
        // controlAudios = FindObjectOfType<ControladorAudios>();

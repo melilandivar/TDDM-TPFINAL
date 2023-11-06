@@ -24,6 +24,8 @@ public class InteraccionMouse : MonoBehaviour
                 {
                     Debug.Log("Por llamar a accionar");
                     interactuarComponent.Accionar();
+                    //Cambiar escena
+
                 }
             }
         }
