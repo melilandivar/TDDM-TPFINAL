@@ -1,42 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ControladorCamaras : MonoBehaviour
 {
-    public GameObject camaraPrincipal;
-    public GameObject camaraAire;
-    public GameObject camaraLavarropas;
-    public GameObject camaraAspiradora;
-    public GameObject camaraMicroondas;
-    public GameObject camaraLuz;
-    public GameObject camaraPc;
-    public GameObject chispasAire;
-        
-    private Interactuar interactuar;
+    public Transform objetivo; // El objeto hacia el cual quieres mover la cámara
+    public float velocidadMovimiento = 5.0f;
+    public float velocidadZoom = 5.0f; // Velocidad de cambio del campo de visión
 
-    void Start()
-    {
-
-        interactuar = FindObjectOfType<Interactuar>();
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
 
     }
 
-    public void activarCamaras(){
-        chispasAire.SetActive(true);
-        camaraAire.SetActive(true);
-        camaraPrincipal.SetActive(false);
-    }
-    public void desactivarCamaras(){
-        chispasAire.SetActive(false);
-        camaraAire.SetActive(false);
-        camaraPrincipal.SetActive(true);
+    public void moverCamara(){
+        // Verifica si el objeto de destino está asignado
+        if (objetivo != null)
+        {
+            // Calcula la posición intermedia entre la posición actual de la cámara y la posición del objetivo
+            Vector3 nuevaPosicion = Vector3.Lerp(transform.position, objetivo.position, velocidadMovimiento * Time.deltaTime);
+            
+            // Modifica el campo de visión para lograr un efecto de zoom
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, objetivo.GetComponent<Camera>().fieldOfView, velocidadZoom * Time.deltaTime);
+
+            // Establece la nueva posición de la cámara
+            transform.position = nuevaPosicion;
+        }
     }
 }

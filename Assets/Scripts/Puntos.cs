@@ -20,26 +20,27 @@ public class Puntos : MonoBehaviour
     void Update()
     {
         actualizarEstadoAnimo();
+        if(puntos<0f){
+            puntos=0f;
+        }
     }
 
     void actualizarEstadoAnimo()
     {
       //  Debug.Log("Puntos: "+puntos);
-        if (puntos >= 7 && puntos <= 10 )
-        {
+        if (puntos >= 7f && puntos <= 10f ){
             Confortable.SetActive(true);
+         //   Debug.Log("Confortable. Puntos: " + puntos);
         }
-        if (puntos >= 4 && puntos <= 7 )
-        {
+        if (puntos >= 4f && puntos <= 7f ){
             Confortable.SetActive(false);
             Alarmante.SetActive(true);
-    //        Debug.Log("Alarmante");
+        //    Debug.Log("Alarmante. Puntos: " + puntos);
         }
-        if (puntos >= 0 && puntos <= 4 )
-        {
+        if (puntos >= 0f && puntos <= 4f ){
             Alarmante.SetActive(false);
             Crisis.SetActive(true);
-      //      Debug.Log("Crisis");
+          //  Debug.Log("Confortable. Puntos: " + puntos);
         }
     }
 }
