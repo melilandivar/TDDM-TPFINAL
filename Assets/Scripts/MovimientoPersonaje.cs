@@ -2,30 +2,31 @@ using UnityEngine;
 
 public class MovimientoPersonaje : MonoBehaviour
 {
-    public Transform target;
+    public Transform[] objetoColision;
     public float velocidad = 5f;
-    public float alturaSalto = 100f; // Ajusta la altura del salto según tus necesidades
+    public float alturaSalto = 100f; // Ajusta la altura del salto según tus necesidades    
+   
+
+
     private bool subiendo = false;
-    public Transform nuevoTarget; // Nueva variable para el nuevo destino
-                                  // Movimiento hacia la derecha
-    private float step;
+    private float step; // Movimiento 
+    private int objActual; // objeto actual en el arreglo
 
-
-      void Update()
+    void Update()
     {
         step = velocidad * Time.deltaTime;
         if (subiendo)
             {
-                transform.position = Vector3.MoveTowards(transform.position, nuevoTarget.position, step);
+            objActual = 1;
+            transform.position = Vector3.MoveTowards(transform.position, objetoColision[objActual].position, step);
             transform.localScale = new Vector3(-1, 1, 1);
 
         }
             else
             {
-                
-                transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+            objActual = 0;
+            transform.position = Vector3.MoveTowards(transform.position, objetoColision[objActual].position, step);
             transform.localScale = new Vector3(1, 1, 1);
-
         }
         
     }
