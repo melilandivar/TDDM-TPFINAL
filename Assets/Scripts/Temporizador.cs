@@ -22,6 +22,9 @@ public class Temporizador : MonoBehaviour
 
     private bool audioReproducido = false;
 
+    public float velocidad = 5f; // Puedes ajustar la velocidad según tus necesidades
+    //private float duracionTotal = 60f; // Ajusta según tus necesidades
+
 
 
     private void Start()
@@ -43,6 +46,18 @@ public class Temporizador : MonoBehaviour
 
     }
 
+    void MoverHorizontalmente()
+    {
+        // Obtener la dirección de movimiento (puedes ajustar según tus necesidades)
+        float direccionHorizontal = 1f; // Mover a la derecha
+
+        // Calcular la nueva posición
+        Vector3 nuevaPosicion = transform.position + new Vector3(direccionHorizontal * velocidad * Time.deltaTime, 0, 0);
+
+        // Aplicar la nueva posición al objeto
+        transform.position = nuevaPosicion;
+    }
+
     private void ActualizarTemporizador()
     {
         duracionTotal -= 1f; // Reducir 1 segundo del temporizador
@@ -62,6 +77,9 @@ public class Temporizador : MonoBehaviour
                 controlAudios.ReproducirAudio(0);
                 audioReproducido = true;
             }
+
+            // Mover el personaje horizontalmente
+            MoverHorizontalmente();
 
         }
         
