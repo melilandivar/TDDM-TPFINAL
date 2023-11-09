@@ -6315,6 +6315,7 @@ MonoBehaviour:
   audio: {fileID: 0}
   fondoDia: {fileID: 828906507}
   fondoNoche: {fileID: 1786480317}
+  velocidad: 5
 --- !u!4 &925881873
 Transform:
   m_ObjectHideFlags: 0
@@ -10482,6 +10483,7 @@ GameObject:
   - component: {fileID: 1432517524}
   - component: {fileID: 1432517523}
   - component: {fileID: 1432517522}
+  - component: {fileID: 1432517526}
   m_Layer: 0
   m_Name: Personaje JULIO
   m_TagString: Untagged
@@ -10581,7 +10583,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!4 &1432517525
 Transform:
   m_ObjectHideFlags: 0
@@ -10591,13 +10593,27 @@ Transform:
   m_GameObject: {fileID: 1432517521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 601, y: 12.9, z: -2.1753275}
+  m_LocalPosition: {x: 1266.4, y: 13.9, z: -2.1753275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1757634803}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1432517526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432517521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9273c65b586317743bf6b08c5176ea28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1993621241}
+  speed: 100
 --- !u!1 &1464075381
 GameObject:
   m_ObjectHideFlags: 0
@@ -12339,7 +12355,7 @@ Transform:
   m_GameObject: {fileID: 1757634802}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5246582, y: -49.2, z: 2.1753275}
+  m_LocalPosition: {x: -15.4, y: -49.2, z: 2.1753275}
   m_LocalScale: {x: 7.2842, y: 7.2842, z: 7.2842}
   m_ConstrainProportionsScale: 0
   m_Children:
