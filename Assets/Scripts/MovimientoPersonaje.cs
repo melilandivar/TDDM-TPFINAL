@@ -13,16 +13,20 @@ public class MovimientoPersonaje : MonoBehaviour
 
       void Update()
     {
-                        
-            if (subiendo)
+        step = velocidad * Time.deltaTime;
+        if (subiendo)
             {
                 transform.position = Vector3.MoveTowards(transform.position, nuevoTarget.position, step);
-            }
+            transform.localScale = new Vector3(-1, 1, 1);
+
+        }
             else
             {
-                step = velocidad * Time.deltaTime;
+                
                 transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-            }
+            transform.localScale = new Vector3(1, 1, 1);
+
+        }
         
     }
 
