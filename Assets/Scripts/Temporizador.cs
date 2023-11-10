@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Temporizador : MonoBehaviour
 {
-    public float duracionTotal = 60f; // Duración total del juego en segundos (4 minutos)
+    public float duracionTotal = 90f; // Duración total del juego en segundos (4 minutos)
     public GameObject solMañana;
     public GameObject solTarde;
     public GameObject solNoche;

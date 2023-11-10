@@ -405,7 +405,8 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  on: 0
+  puntosElectricosTexto: {fileID: 644926350}
+  puntosElectricos: 0
 --- !u!61 &39315120
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1044,7 +1045,8 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  on: 0
+  puntosElectricosTexto: {fileID: 644926350}
+  puntosElectricos: 0
 --- !u!61 &155981790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2375,7 +2377,8 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  on: 0
+  puntosElectricosTexto: {fileID: 644926350}
+  puntosElectricos: 0
 --- !u!61 &373919290
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5430,7 +5433,8 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  on: 0
+  puntosElectricosTexto: {fileID: 644926350}
+  puntosElectricos: 0
 --- !u!61 &907568160
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5587,7 +5591,8 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  on: 0
+  puntosElectricosTexto: {fileID: 644926350}
+  puntosElectricos: 0
 --- !u!61 &924230504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6000,7 +6005,6 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-<<<<<<< Updated upstream
   puntosElectricosTexto: {fileID: 644926350}
   puntosElectricos: 0
 --- !u!328 &951660843
@@ -6039,9 +6043,6 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
-=======
-  on: 0
->>>>>>> Stashed changes
 --- !u!1 &960326222
 GameObject:
   m_ObjectHideFlags: 0
@@ -7595,6 +7596,74 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108590562}
   m_Mesh: {fileID: 2977981768884665668, guid: 02ad78cca7f19f843b49a2e580791919, type: 3}
+--- !u!1 &1144891571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1144891574}
+  - component: {fileID: 1144891573}
+  - component: {fileID: 1144891572}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1144891572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144891571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1144891573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144891571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1144891574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144891571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1186725515
 GameObject:
   m_ObjectHideFlags: 0
@@ -8295,7 +8364,8 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  on: 0
+  puntosElectricosTexto: {fileID: 644926350}
+  puntosElectricos: 0
 --- !u!114 &1251124973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10115,51 +10185,6 @@ Transform:
   - {fileID: 457059067096240628}
   m_Father: {fileID: 229810985}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1527475819
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1527475821}
-  - component: {fileID: 1527475820}
-  m_Layer: 0
-  m_Name: PuntosElectricos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1527475820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527475819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 596fa78e003465a4e827ca6f7a9fcb00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puntosElectricosTexto: {fileID: 644926350}
---- !u!4 &1527475821
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527475819}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1253.8041, y: 621.6222, z: 321.0515}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1533503430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10582,7 +10607,8 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  on: 0
+  puntosElectricosTexto: {fileID: 644926350}
+  puntosElectricos: 0
 --- !u!61 &1614524190
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10878,7 +10904,8 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  on: 0
+  puntosElectricosTexto: {fileID: 644926350}
+  puntosElectricos: 0
 --- !u!61 &1627297726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17715,7 +17742,6 @@ MeshFilter:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1527475821}
   - {fileID: 925881873}
   - {fileID: 1608927029}
   - {fileID: 1327662460}
@@ -17748,11 +17774,7 @@ SceneRoots:
   - {fileID: 982821917}
   - {fileID: 439990222}
   - {fileID: 1432517525}
-<<<<<<< Updated upstream
   - {fileID: 1144891574}
-=======
-  - {fileID: 1904374136}
->>>>>>> Stashed changes
   - {fileID: 2135022802}
   - {fileID: 1021757714}
   - {fileID: 162622712}

@@ -22,6 +22,7 @@ public class InteraccionMouse : MonoBehaviour
                 // Si el objeto clickeado tiene el componente Interactuar
                 if (interactuarComponent != null)
                 {
+                    Debug.Log("Por llamar a accionar");
                     interactuarComponent.Accionar();
                     //Cambiar escena
 
