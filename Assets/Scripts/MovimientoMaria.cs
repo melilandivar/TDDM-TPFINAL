@@ -4,83 +4,71 @@ public class MovimientoMaria : MonoBehaviour
 {
     public Transform[] objetoColision;
     public float velocidad = 5f;
-    public float alturaSalto = 200f; // Ajusta la altura del salto según tus necesidades    
+    public float alturaSalto = 200f;
 
-    private bool Bajando = false;
-    private bool BajarDos = false;
-    private float step; // Movimiento 
-    private int objActual; // objeto actual en el arreglo
+    private bool bajando = false;
+    private bool bajarDos = false;
+    private int objActual = 0;
+    private float step;
 
     void Start()
     {
-        objActual = 0; // Puedes establecer el valor inicial aquí
-                       // Restablecer la escala inicial
-       
+        objActual = 0;
+        step = velocidad * Time.deltaTime;
     }
-
 
     void Update()
     {
-        Debug.Log("Inside Update");
-        //Debug.Log("Time.deltaTime: " + Time.deltaTime);
-
-        step = velocidad * Time.deltaTime;
-        if (Bajando)
+        if (bajando)
         {
-            objActual = 1;
-            transform.position = Vector3.MoveTowards(transform.position, objetoColision[objActual].position, step);
-            transform.localScale = new Vector3(1, 1, 1);
-
+            BajarEscalera();
         }
-          else
+        else if (bajarDos)
         {
-            
-            objActual = 0;
-            transform.position = Vector3.MoveTowards(transform.position, objetoColision[objActual].position, step);
-            transform.localScale = new Vector3(-1, 1, 1);
+            BajarEscaleraDos();
         }
-        if (BajarDos)
+        else
         {
-            objActual = 2;
+            // Movimiento horizontal
             transform.position = Vector3.MoveTowards(transform.position, objetoColision[objActual].position, step);
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3((objActual == 0) ? -1 : 1, 1, 1);
         }
-
-
     }
 
-    // Se llama cuando se produce una colisión
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision Detected");
 
         if (collision.gameObject.CompareTag("Silla"))
         {
-            BajarEscalera();
+            bajando = true;
         }
-        if (collision.gameObject.CompareTag("Lavarropa"))
+        else if (collision.gameObject.CompareTag("Lavarropa"))
         {
-            //BajarEscalera();
-            BajarEscaleraDos();
-         
+            bajarDos = true;
         }
     }
 
     void BajarEscalera()
     {
-        // bajar a una altura determinada
+        // Bajar a una altura determinada
         Vector3 nuevaPosicion = transform.position + new Vector3(0, alturaSalto, 0);
         transform.position = nuevaPosicion;
 
-        // Cambiar la dirección 
-        Bajando = true;
+        // Cambiar la dirección
+        objActual = 1;
+        bajando = false;
     }
+
     void BajarEscaleraDos()
     {
-        // bajar a una altura determinada
+        // Bajar a una altura determinada
         Vector3 nuevaPosicion = transform.position + new Vector3(0, alturaSalto, 0);
         transform.position = nuevaPosicion;
-        Bajando = false;
-        BajarDos = true;
+
+        // Cambiar la dirección
+        objActual = 2;
+        bajarDos = false;
     }
 }
+
