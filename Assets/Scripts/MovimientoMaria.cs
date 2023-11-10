@@ -14,6 +14,8 @@ public class MovimientoMaria : MonoBehaviour
     void Start()
     {
         objActual = 0;
+        // Voltear sprite hacia la derecha
+        transform.localScale = new Vector3(-1, 1, 1);
         step = velocidad * Time.deltaTime;
     }
 
@@ -31,7 +33,7 @@ public class MovimientoMaria : MonoBehaviour
         {
             // Movimiento horizontal
             transform.position = Vector3.MoveTowards(transform.position, objetoColision[objActual].position, step);
-            transform.localScale = new Vector3((objActual == 0) ? -1 : 1, 1, 1);
+            //transform.localScale = new Vector3((objActual == 0) ? -1 : 1, 1, 1);
         }
     }
 
@@ -58,6 +60,9 @@ public class MovimientoMaria : MonoBehaviour
         // Cambiar la dirección
         objActual = 1;
         bajando = false;
+
+        // Voltear sprite hacia la izquierda
+        transform.localScale = new Vector3(1, 1, 1);
     }
 
     void BajarEscaleraDos()
@@ -69,6 +74,8 @@ public class MovimientoMaria : MonoBehaviour
         // Cambiar la dirección
         objActual = 2;
         bajarDos = false;
+        // Voltear sprite hacia la derecha
+        transform.localScale = new Vector3(-1, 1, 1);
     }
 }
 

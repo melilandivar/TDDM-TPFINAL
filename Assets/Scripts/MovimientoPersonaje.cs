@@ -12,9 +12,15 @@ public class MovimientoPersonaje : MonoBehaviour
     private float step; // Movimiento 
     private int objActual; // objeto actual en el arreglo
 
+    void Start()
+    {
+        objActual = 0;
+        step = velocidad * Time.deltaTime;
+    }
+
     void Update()
     {
-        step = velocidad * Time.deltaTime;
+        
         if (subiendo)
             {
             objActual = 1;
@@ -24,7 +30,7 @@ public class MovimientoPersonaje : MonoBehaviour
         }
             else
             {
-            objActual = 0;
+            
             transform.position = Vector3.MoveTowards(transform.position, objetoColision[objActual].position, step);
             transform.localScale = new Vector3(1, 1, 1);
         }
