@@ -18,22 +18,24 @@ public class Interactuar : MonoBehaviour
     public bool aspiradoraOn;
     public bool ventiladorOn;
     public bool computadoraOn;
-    public TextMeshProUGUI  puntosElectricosTexto;
-    public float puntosElectricos;
 
     private Dialogos dialogos;
     private ControlarLuces controlarLuces;
 
     private ControladorAudios controlAudios;
     private Temporizador temporizador;
+    private PuntosElectricos puntosE;
 
     private CameraSequenceController camSeqController;
     private ControladorCamaras controladorCamaras;
+
+    public bool on;
               
 
     void Start()
     {
         dialogos = FindObjectOfType<Dialogos>(); // Encuentra el objeto con el script Dialogos
+        puntosE = FindObjectOfType<PuntosElectricos>(); // Encuentra el objeto con el script PuntosElectricos
         controlarLuces = FindObjectOfType<ControlarLuces>(); // Encuentra el objeto con el script ControlarLuces
       //  cambiarEscenas = FindObjectOfType<CambiarEscenas>(); // Encuentra el objeto con el script CambiarEscenas
         temporizador = FindObjectOfType<Temporizador>(); // Encuentra el objeto con el script ControlarLuces
@@ -47,46 +49,42 @@ public class Interactuar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        puntosElectricosTexto.text = "Puntos Electricos: " + puntosElectricos.ToString();
-        Debug.Log("Puntos electricos: "+puntosElectricos);
         //Se produce corte electrico
-        if (puntosElectricos>=10){
+        if (PuntosElectricos.puntosElectricos>=10){
                Puntos.puntos = 0;
             
        //     camSeqController.InitSequence();
         }
     }
     public void Accionar(){
-        Debug.Log("accionar llamado");
   
-        if(esCompu){             
+        if(esCompu){         
+            on = true;      
+            puntosE.sumarPuntos(3);    
             computadoraOn =! computadoraOn; 
-            Debug.Log("compu: " + computadoraOn);     
-            ModificarPuntos();
             dialogos.desactivarComputadora();
             controlarLuces.desactivarLuces("monitor"); 
-            controlarLuces.desactivarLuces("gabinete");
-            //controlarAudio();
-           
+            controlarLuces.desactivarLuces("gabinete");          
         }
         if(esMicroondas){         
+            on = true;      
+            puntosE.sumarPuntos(4); 
             microondasOn =! microondasOn;     
-            Debug.Log("microondas");     
-            ModificarPuntos();
             dialogos.desactivarMicroondas();
             controlarLuces.desactivarLuces("microondas"); 
         }
+        /*
         if(esLavarropas){              
             lavarropasOn =! lavarropasOn;
             Debug.Log("lavarropas: " + lavarropasOn);     
-            ModificarPuntos();
+            modificarLavarropas();
             dialogos.desactivarLavarropas(); 
             controlarLuces.desactivarLuces("lavarropas"); 
         }
         if(esAire){            
             aireOn =! aireOn;  
             Debug.Log("aire");     
-            ModificarPuntos();
+            modificarAire();
             dialogos.desactivarAire();
             controlarLuces.desactivarLuces("aire");
             if(aireOn){
@@ -98,17 +96,17 @@ public class Interactuar : MonoBehaviour
         if(esAspiradora){    
             aspiradoraOn =! aspiradoraOn;          
             Debug.Log("aspiradora");     
-            ModificarPuntos();
+            modificarAspiradora();
             dialogos.desactivarAspiradora();
             controlarLuces.desactivarLuces("aspiradora"); 
         }
         if(esVentilador){  
             ventiladorOn =! ventiladorOn;            
             Debug.Log("ventilador");     
-            ModificarPuntos();
+            modificarVentilador();
             dialogos.desactivarAspiradora();
             controlarLuces.desactivarLuces("ventilador"); 
-        }
+        } */
     }
 /*
     void OnOffLuz(){
@@ -121,40 +119,20 @@ public class Interactuar : MonoBehaviour
         }
     }
     */
-    void controlarAudio(){
-        if(computadoraOn)
-        {
-          //   controlAudios.ReproducirAudio(3);
-        }
-        else {
-            //    controlAudios.PausarAudio(3);
-        }
-       
 
-    }
-    
-    void sumar(float numero){
-        puntosElectricos += numero;
-        Debug.Log("Puntos electricos: "+puntosElectricos);
-    }
-    
-    void restar(float numero){
-        puntosElectricos -= numero;
-        Debug.Log("Puntos electricos: "+puntosElectricos);
-    }
-
-    void ModificarPuntos(){
-        OnOff = !OnOff;
-        if(esCompu){        
+    void modificarCompu(){
+      
             if(computadoraOn){
-                puntosElectricos = puntosElectricos + 3f;
+                PuntosElectricos.puntosElectricos = PuntosElectricos.puntosElectricos + 3f;
                 Debug.Log("sumar pc");
             } else {
-               puntosElectricos = puntosElectricos - 3f;
+               PuntosElectricos.puntosElectricos = PuntosElectricos.puntosElectricos - 2f;
                 Debug.Log("restar pc");
             }
-        }
-        if(esMicroondas){        
+
+    }
+    /*
+    void modificarMicroondas(){       
             if(microondasOn){
                puntosElectricos = puntosElectricos + 4f;
                 Debug.Log("sumar microondas");
@@ -162,51 +140,54 @@ public class Interactuar : MonoBehaviour
                puntosElectricos = puntosElectricos - 3f;
                 Debug.Log("restar microondas");
             }
-        }
-        if(esLavarropas){        
+
+    }
+
+    void modificarLavarropas(){      
             if(lavarropasOn){
-                this.sumar(4);
+                puntosElectricos = puntosElectricos + 4f;
                 Debug.Log("sumar lavarropas");
             } else {
-                this.restar(2);
+                puntosElectricos = puntosElectricos - 3f;
                 Debug.Log("restar lavarropas");
             }
-        }
-        if(esAire){        
+    }
+
+    void modificarAire(){    
             if(aireOn){
-                this.sumar(5);
+                puntosElectricos = puntosElectricos + 5f;
                 Puntos.puntos +=5;
                 Debug.Log("sumar aire");
             } else {
-                this.restar(5);
+                puntosElectricos = puntosElectricos - 4f;
                 Puntos.puntos -=5;
                 Debug.Log("restar aire");
             }
-        }
-        if(esVentilador){        
+    }
+
+    void modificarVentilador(){
+               
             if(ventiladorOn){
-                this.sumar(2);
+                puntosElectricos = puntosElectricos + 2f;
                 Puntos.puntos +=2;
                 Debug.Log("sumar ventilador");
             } else {
-                this.restar(2);
+                puntosElectricos = puntosElectricos - 2f;
                 Puntos.puntos -=2;
                 Debug.Log("restar ventilador");
             }
-        }
-        if(esAspiradora){        
+    }
+
+    void modificarAspiradora(){
+               
             if(aspiradoraOn == true){
-                this.sumar(4);
+                puntosElectricos = puntosElectricos + 4f;
                 Debug.Log("sumar aspiradora");
             }
             if(aspiradoraOn == false){
-                this.restar(4);
+                puntosElectricos = puntosElectricos - 3f;
                 Debug.Log("restar aspiradora");
             }
-        }
-
-
         
-
-    } 
+    } */
 }
