@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Escalera01
   - Escalera02
+  - Silla
+  - Lavarropa
   layers:
   - Default
   - TransparentFX
