@@ -39,7 +39,7 @@ public class Interactuar : MonoBehaviour
         temporizador = FindObjectOfType<Temporizador>(); // Encuentra el objeto con el script ControlarLuces
         camSeqController = FindObjectOfType<CameraSequenceController>();
         controladorCamaras = FindObjectOfType<ControladorCamaras>();
-       // controlAudios = FindObjectOfType<ControladorAudios>();
+       controlAudios = FindObjectOfType<ControladorAudios>();
        
         aireOn= false;      
     }
@@ -66,22 +66,26 @@ public class Interactuar : MonoBehaviour
             dialogos.desactivarComputadora();
             controlarLuces.desactivarLuces("monitor"); 
             controlarLuces.desactivarLuces("gabinete");
-            //controlarAudio();
-           
+                        // controlarAudio();
+            controlAudios.ReproducirAudio(3);
+
         }
-        if(esMicroondas){         
+        if (esMicroondas){         
             microondasOn =! microondasOn;     
             Debug.Log("microondas");     
             ModificarPuntos();
             dialogos.desactivarMicroondas();
-            controlarLuces.desactivarLuces("microondas"); 
+            controlarLuces.desactivarLuces("microondas");
+            controlAudios.ReproducirAudio(4);
+
         }
         if(esLavarropas){              
             lavarropasOn =! lavarropasOn;
             Debug.Log("lavarropas: " + lavarropasOn);     
             ModificarPuntos();
             dialogos.desactivarLavarropas(); 
-            controlarLuces.desactivarLuces("lavarropas"); 
+            controlarLuces.desactivarLuces("lavarropas");
+            controlAudios.ReproducirAudio(5);
         }
         if(esAire){            
             aireOn =! aireOn;  
@@ -89,18 +93,19 @@ public class Interactuar : MonoBehaviour
             ModificarPuntos();
             dialogos.desactivarAire();
             controlarLuces.desactivarLuces("aire");
-            if(aireOn){
+            controlAudios.ReproducirAudio(6);
+            if (aireOn){
                 temporizador.disminuirTemperatura();                
             } 
-         //   controlarAudio();
-         //controlAudios.seleccionAudio(3, 0.5f); // Arreglo del audio, posicion 3.
+       
         }
         if(esAspiradora){    
             aspiradoraOn =! aspiradoraOn;          
             Debug.Log("aspiradora");     
             ModificarPuntos();
             dialogos.desactivarAspiradora();
-            controlarLuces.desactivarLuces("aspiradora"); 
+            controlarLuces.desactivarLuces("aspiradora");
+            controlAudios.ReproducirAudio(7);
         }
         if(esVentilador){  
             ventiladorOn =! ventiladorOn;            
@@ -124,12 +129,16 @@ public class Interactuar : MonoBehaviour
     void controlarAudio(){
         if(computadoraOn)
         {
-          //   controlAudios.ReproducirAudio(3);
+          //controlAudios.ReproducirAudio(3);
         }
+        
         else {
-            //    controlAudios.PausarAudio(3);
+           // controlAudios.PausarAudio(3);
+           
         }
-       
+        
+        
+
 
     }
     

@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 155981791}
   - component: {fileID: 155981790}
   - component: {fileID: 155981789}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lavarropas-box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5649,7 +5649,7 @@ MonoBehaviour:
   - {fileID: 626570106}
   - {fileID: 495783834}
   - {fileID: 527788807}
-  velocidad: 50
+  velocidad: 100
   alturaSalto: -290
 --- !u!95 &895751838
 Animator:
@@ -5684,7 +5684,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -5739,7 +5739,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -5772,7 +5772,7 @@ GameObject:
   - component: {fileID: 907568161}
   - component: {fileID: 907568160}
   - component: {fileID: 907568159}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pc-box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5818,7 +5818,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5930,7 +5930,7 @@ GameObject:
   - component: {fileID: 924230505}
   - component: {fileID: 924230504}
   - component: {fileID: 924230503}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pc-box (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5976,7 +5976,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6712,7 +6712,7 @@ GameObject:
   - component: {fileID: 982821917}
   - component: {fileID: 982821916}
   - component: {fileID: 982821918}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Escalera02
   m_TagString: Escalera02
   m_Icon: {fileID: 0}
@@ -9328,7 +9328,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 56f89414380ea874bb4dddbb862df97b, type: 3}
   - {fileID: 8300000, guid: f255cf34751b5ee43987c1719d4099ff, type: 3}
   - {fileID: 8300000, guid: 0b446ab6347931b40a3c808db3472b67, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: f626b194967d3c6478cca06c8be460d9, type: 3}
+  - {fileID: 8300000, guid: a77be536eb2f5d84aa1a0a39e40471de, type: 3}
+  - {fileID: 8300000, guid: 8deb21d22bc3aae44ad861019f29f92c, type: 3}
+  - {fileID: 8300000, guid: fe01de86057612f45a5cc22d6b3232bb, type: 3}
+  - {fileID: 8300000, guid: 285569e5aa9febd4d93d12737849e18a, type: 3}
 --- !u!82 &1327662459
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10946,7 +10950,7 @@ GameObject:
   - component: {fileID: 1614524191}
   - component: {fileID: 1614524190}
   - component: {fileID: 1614524189}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pc-box (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11243,7 +11247,7 @@ GameObject:
   - component: {fileID: 1627297727}
   - component: {fileID: 1627297726}
   - component: {fileID: 1627297725}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Aspiradora-box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
