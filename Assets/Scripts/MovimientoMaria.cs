@@ -6,7 +6,8 @@ public class MovimientoMaria : MonoBehaviour
     public float velocidad = 5f;
     public float alturaSalto = 200f; // Ajusta la altura del salto según tus necesidades    
 
-    private bool subiendo = false;
+    private bool Bajando = false;
+    private bool BajarDos = false;
     private float step; // Movimiento 
     private int objActual; // objeto actual en el arreglo
 
@@ -24,20 +25,27 @@ public class MovimientoMaria : MonoBehaviour
         //Debug.Log("Time.deltaTime: " + Time.deltaTime);
 
         step = velocidad * Time.deltaTime;
-        if (subiendo)
+        if (Bajando)
         {
             objActual = 1;
             transform.position = Vector3.MoveTowards(transform.position, objetoColision[objActual].position, step);
             transform.localScale = new Vector3(1, 1, 1);
 
         }
-        else
+          else
         {
             
             objActual = 0;
             transform.position = Vector3.MoveTowards(transform.position, objetoColision[objActual].position, step);
             transform.localScale = new Vector3(-1, 1, 1);
         }
+        if (BajarDos)
+        {
+            objActual = 2;
+            transform.position = Vector3.MoveTowards(transform.position, objetoColision[objActual].position, step);
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
 
     }
 
@@ -48,17 +56,31 @@ public class MovimientoMaria : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Silla"))
         {
-            SubirEscalera();
+            BajarEscalera();
+        }
+        if (collision.gameObject.CompareTag("Lavarropa"))
+        {
+            //BajarEscalera();
+            BajarEscaleraDos();
+         
         }
     }
 
-    void SubirEscalera()
+    void BajarEscalera()
     {
-        // Subir a una altura determinada
+        // bajar a una altura determinada
         Vector3 nuevaPosicion = transform.position + new Vector3(0, alturaSalto, 0);
         transform.position = nuevaPosicion;
 
-        // Cambiar la dirección a la izquierda
-        subiendo = true;
+        // Cambiar la dirección 
+        Bajando = true;
+    }
+    void BajarEscaleraDos()
+    {
+        // bajar a una altura determinada
+        Vector3 nuevaPosicion = transform.position + new Vector3(0, alturaSalto, 0);
+        transform.position = nuevaPosicion;
+        Bajando = false;
+        BajarDos = true;
     }
 }
