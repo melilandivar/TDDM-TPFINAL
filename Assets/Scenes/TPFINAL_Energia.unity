@@ -4893,12 +4893,12 @@ GameObject:
   - component: {fileID: 799914983}
   - component: {fileID: 799914984}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ControladorCamara
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &799914983
 Transform:
   m_ObjectHideFlags: 0
@@ -4921,19 +4921,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799914982}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afeb8ee379b2fdb4593a4de1f5095bcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 176413c00df95f3488d8323e87cf0279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameras:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1692728016}
+  mainCamera: {fileID: 1692728016}
+  newCameraPosition: {fileID: 0}
+  transitionSpeed: 1.5
 --- !u!1 &800373483
 GameObject:
   m_ObjectHideFlags: 0
