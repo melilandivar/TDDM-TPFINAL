@@ -12,10 +12,12 @@ public class PuntosElectricos : MonoBehaviour
     public GameObject medidorNormal;
     public GameObject medidorAlarmante;
     public GameObject medidorCrisis;
+    private CambiarEscenas cambiarEscenas;
     //Aca irian los hud electricos
     void Start()
     {
         interactuar = FindObjectOfType<Interactuar>();
+        cambiarEscenas = FindObjectOfType<CambiarEscenas>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,10 @@ public class PuntosElectricos : MonoBehaviour
             medidorCrisis.SetActive(false);
             medidorAlarmante.SetActive(false);
             medidorNormal.SetActive(true);
+        }
+        //Corte de luz
+        if (puntosElectricos >= 10f ){
+            cambiarEscenas.CargarEscena("SecuenciaCamaras");
         }
     }
 
