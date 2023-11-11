@@ -30,7 +30,7 @@ public class Puntos : MonoBehaviour
       //  Debug.Log("Puntos: "+puntos);
         if (puntos >= 7f && puntos <= 10f ){
             Confortable.SetActive(true);
-         //   Debug.Log("Confortable. Puntos: " + puntos);
+            Debug.Log("Confortable. Puntos: " + puntos);
         }
         if (puntos >= 4f && puntos <= 7f ){
             Confortable.SetActive(false);
