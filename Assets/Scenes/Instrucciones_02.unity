@@ -181,10 +181,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 999.19
   field of view: 60
   orthographic: 1
-  orthographic size: 544.5536
+  orthographic size: 719.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
