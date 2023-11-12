@@ -32,4 +32,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ganar.unity
     guid: 58b9d67746bbef540bc4293fd4a2017b
+  - enabled: 1
+    path: Assets/Scenes/ControlAire.unity
+    guid: c9e62346338f2494e912097bf4dddf31
+  - enabled: 1
+    path: Assets/Scenes/ControlAspiradora.unity
+    guid: e2a664741dd643143bb636c65c8646eb
+  - enabled: 1
+    path: Assets/Scenes/ControlLavarropas.unity
+    guid: 4abc9408c9366fd47acf70818d8e2c42
+  - enabled: 1
+    path: Assets/Scenes/ControlMicroondas.unity
+    guid: 20d13792df4513f4f9126b0451fc7a23
+  - enabled: 1
+    path: Assets/Scenes/ControlVentilador.unity
+    guid: 6818dfa0c19093b49ac95f79b2ac9073
   m_configObjects: {}
