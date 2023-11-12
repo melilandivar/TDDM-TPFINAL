@@ -25,7 +25,7 @@ public class PuntosElectricos : MonoBehaviour
     void Update()
     {
         puntosElectricosTexto.text = "Puntos Electricos: " + puntosElectricos.ToString();
-        Debug.Log("Puntos e:" + puntosElectricos);
+     //   Debug.Log("Puntos e:" + puntosElectricos);
         if (puntosElectricos >= 7f && puntosElectricos <= 10f ){
             medidorCrisis.SetActive(true);
             medidorAlarmante.SetActive(false);

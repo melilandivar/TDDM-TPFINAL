@@ -101,8 +101,8 @@ public class Temporizador : MonoBehaviour
            
         }
         //Resto puntos, seria que pasa al mediodía
-        if(duracionTotal == 50f){
-            Puntos.puntos -=3;
+        if(duracionTotal <= 50f){
+            Puntos.puntos -=1;
             treinta.SetActive(false);
             //hacen 32 grados al mediodia
             treintaydos.SetActive(true);
@@ -110,18 +110,23 @@ public class Temporizador : MonoBehaviour
         //___________________________________________________  TARDE
         if(duracionTotal == 40f){ // 00:40 es solTarde
            //Resto puntos
-           Puntos.puntos -= 3f;
+           Puntos.puntos -= 1f;
            Debug.Log("Tarde");
            Debug.Log("Restar 3 puntos");
-           if(interactuar.computadoraOn == false){
-               
+           if(interactuar.computadoraOn == false){             
                 //Resto puntos por no trabajar en la mañana
                 Puntos.puntos -= 4f;
-           }
+           } 
+            //Apago automaticamente la pc
+            PuntosElectricos.puntosElectricos = PuntosElectricos.puntosElectricos - 2f;
+            //Apago lavarropas
+            PuntosElectricos.puntosElectricos = PuntosElectricos.puntosElectricos - 3f;
            if(interactuar.lavarropasOn == false){
                 //Resto puntos por no limpiar en la mañana
                 Puntos.puntos -= 2f;
            }
+
+           
             if (audioReproducido)
             {
                 controlAudios.PausarAudio(0);
@@ -159,13 +164,20 @@ public class Temporizador : MonoBehaviour
             controlarLuces.desactivarLuces("computadora");
         }
         if(duracionTotal == 20f){ // 00:20 es solNoche
+           //Apago computadora 
+           PuntosElectricos.puntosElectricos = PuntosElectricos.puntosElectricos - 2f;
+         //Apago aire 
+          PuntosElectricos.puntosElectricos = PuntosElectricos.puntosElectricos - 5f;
            //Resto puntos
-           Puntos.puntos -= 3f;
-           Debug.Log("Restar 3 puntos");
+           Puntos.puntos -= 1f;
+           Debug.Log("Restar 1 puntos");
            if(interactuar.computadoraOn == false){
                 //Resto puntos por no trabajar en la tarde
                 Puntos.puntos -= 4f;
-           }
+           } 
+
+
+
             if (audioReproducido)
             {
                 controlAudios.PausarAudio(1);
