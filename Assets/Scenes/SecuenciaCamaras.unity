@@ -207,6 +207,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &9666162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9666163}
+  m_Layer: 0
+  m_Name: vISTAS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9666163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9666162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2123555804}
+  - {fileID: 1329471217}
+  - {fileID: 677185620}
+  - {fileID: 2073693950}
+  - {fileID: 310355567}
+  - {fileID: 755622736}
+  m_Father: {fileID: 1932243252}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &25124406
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,8 +526,7 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  puntosElectricosTexto: {fileID: 644926350}
-  puntosElectricos: 0
+  on: 0
 --- !u!61 &39315120
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1129,8 +1165,7 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  puntosElectricosTexto: {fileID: 644926350}
-  puntosElectricos: 0
+  on: 0
 --- !u!61 &155981790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1946,11 +1981,11 @@ Transform:
   m_GameObject: {fileID: 310355566}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -527.9, y: 108.94, z: -714.07}
-  m_LocalScale: {x: 103.79, y: 574.6, z: 72.5}
+  m_LocalPosition: {x: -527.9, y: 108.94001, z: -714.07}
+  m_LocalScale: {x: 103.79001, y: 574.6, z: 72.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1932243252}
+  m_Father: {fileID: 9666163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &310441146
 GameObject:
@@ -2492,8 +2527,7 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  puntosElectricosTexto: {fileID: 644926350}
-  puntosElectricos: 0
+  on: 0
 --- !u!61 &373919290
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4651,10 +4685,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -298, y: 193, z: -714.07}
-  m_LocalScale: {x: 103.79, y: 574.6, z: 72.5}
+  m_LocalScale: {x: 103.79001, y: 574.6, z: 72.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1932243252}
+  m_Father: {fileID: 9666163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &713639424
 GameObject:
@@ -4808,10 +4842,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 25, y: 4, z: -714.07}
-  m_LocalScale: {x: 103.79, y: 574.6, z: 72.5}
+  m_LocalScale: {x: 103.79001, y: 574.6, z: 72.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1932243252}
+  m_Father: {fileID: 9666163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &765626897
 PrefabInstance:
@@ -5610,8 +5644,7 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  puntosElectricosTexto: {fileID: 644926350}
-  puntosElectricos: 0
+  on: 0
 --- !u!61 &907568160
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5768,8 +5801,7 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  puntosElectricosTexto: {fileID: 644926350}
-  puntosElectricos: 0
+  on: 0
 --- !u!61 &924230504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5952,9 +5984,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf32bf1acce8aa4d868356f8d2672be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Confortable: {fileID: 1816186848}
-  Alarmante: {fileID: 82962104}
-  Crisis: {fileID: 582566867}
+  hombreNormal: {fileID: 0}
+  hombreAlarmante: {fileID: 0}
+  hombreCrisis: {fileID: 0}
+  mujerNormal: {fileID: 0}
+  mujerAlarmante: {fileID: 0}
+  mujerCrisis: {fileID: 0}
 --- !u!82 &925881875
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6181,8 +6216,7 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  puntosElectricosTexto: {fileID: 644926350}
-  puntosElectricos: 0
+  on: 0
 --- !u!1 &960326222
 GameObject:
   m_ObjectHideFlags: 0
@@ -8480,8 +8514,7 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  puntosElectricosTexto: {fileID: 644926350}
-  puntosElectricos: 0
+  on: 0
 --- !u!114 &1251124973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9295,10 +9328,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 186, y: 252, z: -714.07}
-  m_LocalScale: {x: 103.79, y: 574.6, z: 72.5}
+  m_LocalScale: {x: 103.79001, y: 574.6, z: 72.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1932243252}
+  m_Father: {fileID: 9666163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &1334971749
 PrefabInstance:
@@ -10820,8 +10853,7 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  puntosElectricosTexto: {fileID: 644926350}
-  puntosElectricos: 0
+  on: 0
 --- !u!61 &1614524190
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11117,8 +11149,7 @@ MonoBehaviour:
   aspiradoraOn: 0
   ventiladorOn: 0
   computadoraOn: 0
-  puntosElectricosTexto: {fileID: 644926350}
-  puntosElectricos: 0
+  on: 0
 --- !u!61 &1627297726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11528,6 +11559,7 @@ MonoBehaviour:
   - {fileID: 1329471217}
   - {fileID: 2123555804}
   transitionSpeed: 1
+  on: 0
 --- !u!1 &1712255402
 GameObject:
   m_ObjectHideFlags: 0
@@ -13115,12 +13147,7 @@ Transform:
   - {fileID: 1864079984}
   - {fileID: 1945321660}
   - {fileID: 1334971750}
-  - {fileID: 755622736}
-  - {fileID: 310355567}
-  - {fileID: 2073693950}
-  - {fileID: 677185620}
-  - {fileID: 1329471217}
-  - {fileID: 2123555804}
+  - {fileID: 9666163}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1932243253
@@ -13758,10 +13785,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -378, y: -155, z: -714.07}
-  m_LocalScale: {x: 103.79, y: 574.6, z: 72.5}
+  m_LocalScale: {x: 103.79001, y: 574.6, z: 72.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1932243252}
+  m_Father: {fileID: 9666163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &2098340884
 PrefabInstance:
@@ -14109,11 +14136,11 @@ Transform:
   m_GameObject: {fileID: 2123555803}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 273, y: 419, z: -714.07}
-  m_LocalScale: {x: 103.79, y: 574.6, z: 72.5}
+  m_LocalPosition: {x: 273, y: 418.99997, z: -714.07}
+  m_LocalScale: {x: 103.79001, y: 574.6, z: 72.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1932243252}
+  m_Father: {fileID: 9666163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &2128299564
 GameObject:
