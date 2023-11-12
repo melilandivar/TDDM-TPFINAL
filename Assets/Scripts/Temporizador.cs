@@ -102,7 +102,6 @@ public class Temporizador : MonoBehaviour
         }
         //Resto puntos, seria que pasa al mediodía
         if(duracionTotal <= 50f){
-            Puntos.puntos -=1;
             treinta.SetActive(false);
             //hacen 32 grados al mediodia
             treintaydos.SetActive(true);
@@ -115,7 +114,7 @@ public class Temporizador : MonoBehaviour
            Debug.Log("Restar 3 puntos");
            if(interactuar.computadoraOn == false){             
                 //Resto puntos por no trabajar en la mañana
-                Puntos.puntos -= 4f;
+                //Puntos.puntos -= f;
            } 
             //Apago automaticamente la pc
             PuntosElectricos.puntosElectricos = PuntosElectricos.puntosElectricos - 2f;
@@ -123,7 +122,7 @@ public class Temporizador : MonoBehaviour
             PuntosElectricos.puntosElectricos = PuntosElectricos.puntosElectricos - 3f;
            if(interactuar.lavarropasOn == false){
                 //Resto puntos por no limpiar en la mañana
-                Puntos.puntos -= 2f;
+               // Puntos.puntos -= 2f;
            }
 
            
@@ -168,12 +167,14 @@ public class Temporizador : MonoBehaviour
            PuntosElectricos.puntosElectricos = PuntosElectricos.puntosElectricos - 2f;
          //Apago aire 
           PuntosElectricos.puntosElectricos = PuntosElectricos.puntosElectricos - 5f;
+          //Apago ventilador
+           PuntosElectricos.puntosElectricos = PuntosElectricos.puntosElectricos - 2f;
            //Resto puntos
            Puntos.puntos -= 1f;
            Debug.Log("Restar 1 puntos");
            if(interactuar.computadoraOn == false){
                 //Resto puntos por no trabajar en la tarde
-                Puntos.puntos -= 4f;
+              //  Puntos.puntos -= 4f;
            } 
 
 
@@ -212,11 +213,11 @@ public class Temporizador : MonoBehaviour
         {
            if(interactuar.microondasOn == false){
                 //Resto puntos por no cocinar
-                Puntos.puntos -= 5f;
+              //  Puntos.puntos -= 5f;
            }
            if(interactuar.aspiradoraOn == false){
                 //Resto puntos por no limpiar
-                Puntos.puntos -= 2f;
+              //  Puntos.puntos -= 2f;
            }
         }
         if(duracionTotal <=0f &&  PuntosElectricos.puntosElectricos <=7f){

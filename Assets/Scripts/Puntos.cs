@@ -36,6 +36,10 @@ public class Puntos : MonoBehaviour
         if (puntos >= 7f && puntos <= 10f ){
             hombreNormal.SetActive(true);
             mujerNormal.SetActive(true);
+            hombreAlarmante.SetActive(false);
+            mujerAlarmante.SetActive(false);
+            hombreCrisis.SetActive(false);
+            mujerCrisis.SetActive(false);
             Debug.Log("Confortable. Puntos: " + puntos);
         }
         if (puntos >= 4f && puntos <= 7f ){
@@ -43,9 +47,13 @@ public class Puntos : MonoBehaviour
             mujerNormal.SetActive(false);
             hombreAlarmante.SetActive(true);
             mujerAlarmante.SetActive(true);
+            hombreCrisis.SetActive(false);
+            mujerCrisis.SetActive(false);
         //    Debug.Log("Alarmante. Puntos: " + puntos);
         }
         if (puntos >= 0f && puntos <= 4f ){
+            hombreNormal.SetActive(false);
+            mujerNormal.SetActive(false);
             hombreAlarmante.SetActive(false);
             mujerAlarmante.SetActive(false);
             hombreCrisis.SetActive(true);

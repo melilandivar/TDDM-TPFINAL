@@ -98,7 +98,7 @@ public class Interactuar : MonoBehaviour
         if(esVentilador){  
             ventiladorOn =! ventiladorOn; 
             modificarVentilador();
-            dialogos.desactivarAspiradora();
+            dialogos.desactivarVentilador();
             controlarLuces.desactivarLuces("ventilador"); 
         } 
     }
