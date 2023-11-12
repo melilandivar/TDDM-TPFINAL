@@ -19,6 +19,10 @@ public class Temporizador : MonoBehaviour
     private ControlarLuces controlarLuces;
     private ControladorAudios controlAudios;
     private Interactuar interactuar;
+    private CambiarEscenas cambiarEscenas;
+    private PuntosElectricos puntosE;
+
+    
 
     private bool audioReproducido = false;
 
@@ -38,6 +42,8 @@ public class Temporizador : MonoBehaviour
         controlAudios = FindObjectOfType<ControladorAudios>(); // Encuentra el objeto con el script ControlarLuces
         interactuar = FindObjectOfType<Interactuar>(); // Encuentra el objeto con el script ControlarLuces
         audioReproducido = false;
+        cambiarEscenas = FindObjectOfType<CambiarEscenas>();
+        puntosE = FindObjectOfType<PuntosElectricos>();
     }
     
         // Update is called once per frame
@@ -200,6 +206,9 @@ public class Temporizador : MonoBehaviour
                 //Resto puntos por no limpiar
                 Puntos.puntos -= 2f;
            }
+        }
+        if(duracionTotal <=0f &&  PuntosElectricos.puntosElectricos <=7f){
+            cambiarEscenas.CargarEscena("Ganar");
         }
 
     }

@@ -42,7 +42,7 @@ public class PuntosElectricos : MonoBehaviour
             medidorNormal.SetActive(true);
         }
         //Corte de luz
-        if (puntosElectricos >= 10f && cambiarCamara == false ){
+        if (puntosElectricos >= 10f){
             cambiarEscenas.CargarEscena("SecuenciaCamaras");
         }
     }

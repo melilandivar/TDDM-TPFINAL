@@ -13,15 +13,15 @@ public class Camara : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("ChangeToNextView", 0f, 1f); // Cambia de vista cada 5 segundos (ajusta seg�n sea necesario)
+        InvokeRepeating("ChangeToNextView", 0f, 2f); // Cambia de vista cada 5 segundos (ajusta seg�n sea necesario)
         cambiarEscenas = FindObjectOfType<CambiarEscenas>();
         puntosElectricos = FindObjectOfType<PuntosElectricos>();
     }
 
     void Update(){
         if(currentViewIndex == 5){
-            cambiarEscenas.CargarEscena("TPFINAL_Energia");
-            puntosElectricos.cambiarCamara = true;
+            cambiarEscenas.CargarEscena("Perder");
+          //  puntosElectricos.cambiarCamara = true;
         }
         Debug.Log(currentViewIndex);
     }
