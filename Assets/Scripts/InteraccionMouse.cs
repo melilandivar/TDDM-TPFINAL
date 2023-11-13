@@ -16,6 +16,7 @@ public class InteraccionMouse : MonoBehaviour
             // Si el raycast golpea un collider 2D
             if (hit.collider != null)
             {
+                
                 // Intenta obtener el componente Interactuar del objeto clickeado
                 Interactuar interactuarComponent = hit.collider.gameObject.GetComponent<Interactuar>();
            //     Debug.Log(microondasScript);
@@ -25,6 +26,7 @@ public class InteraccionMouse : MonoBehaviour
                     Debug.Log("Por llamar a accionar");
                     interactuarComponent.Accionar();
                     //Cambiar escena
+                   
 
                 }
             }

@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public class CamaraElementos : MonoBehaviour
 {
@@ -10,67 +8,125 @@ public class CamaraElementos : MonoBehaviour
     private Transform currentView;
     private Camera mainCamera;
 
-    public float zoomSize = 5f; // Tama�o de zoom para la c�mara ortogr�fica
-    public float defaultSize = 10f; // Tama�o ortogr�fico por defecto
+    public float zoomSize = 5f; // Tamaño de zoom para la cámara ortográfica
+    public float defaultSize = 10f; // Tamaño ortográfico por defecto
 
-    private float originalSize; // Guarda el tama�o original antes del zoom
+    private float originalSize; // Guarda el tamaño original antes del zoom
+
+    private Interactuar interactuar;
 
     void Start()
     {
         mainCamera = GetComponent<Camera>();
+        interactuar = FindObjectOfType<Interactuar>();
         currentView = transform;
-        originalSize = mainCamera.orthographicSize; // Almacena el tama�o original
-
+        originalSize = mainCamera.orthographicSize; // Almacena el tamaño original
     }
 
-
-    // En el update estoy poniendo para que las vistas cambien con las teclas. Habria que modificarlo a tiempos. Ej: 1 segundo y pasa a la siguiente
-
-
     void Update()
-
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+
+
+        // Verifica si el zoom está activo antes de realizar zoom al presionar teclas o el botón
+        if (!interactuar.camaraCerca)
         {
-            currentView = views[0];
-            StartCoroutine(ZoomEffect(zoomSize)); // Activa el efecto de zoom
+            // Aire
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                interactuar.camaraCerca = true;
+                currentView = views[0];
+                StartCoroutine(ZoomEffect(zoomSize)); // Activa el efecto de zoom
+            }
+            // Lavarropas
+            else if (Input.GetKeyDown(KeyCode.W))
+            {
+                interactuar.camaraCerca = true;
+                currentView = views[1];
+                StartCoroutine(ZoomEffect(zoomSize));
+            }
+            // ... Agrega condiciones para otros elementos
+
+            // Última es la vista general, la original de la cámara
+            else if (Input.GetKeyDown(KeyCode.U))
+            {
+                interactuar.camaraCerca = false;
+                currentView = views[6];
+                StartCoroutine(ZoomEffect(originalSize)); // Restaura el tamaño original
+            }
         }
-        if (Input.GetKeyDown(KeyCode.W))
+    }
+
+    public void acercarCamara(string objeto)
+    {
+
+        // Verifica si el zoom está activo antes de realizar zoom al hacer clic en el botón
+        if (!interactuar.camaraCerca)
         {
-            currentView = views[1];
-            StartCoroutine(ZoomEffect(zoomSize));
-        }
-        if (Input.GetKeyDown(KeyCode.E))
+            // Aire
+            if (objeto == "aire")
+            {
+                interactuar.camaraCerca = true;
+                currentView = views[0];
+                StartCoroutine(ZoomEffect(zoomSize)); // Activa el efecto de zoom
+            }
+            // Lavarropas
+            else if (objeto == "lavarropas")
+            {
+                interactuar.camaraCerca = true;
+                currentView = views[1];
+                StartCoroutine(ZoomEffect(zoomSize));
+            }
+                   //aspiradora
+        if (objeto == "aspiradora")
         {
+            interactuar.camaraCerca = true;
             currentView = views[2];
             StartCoroutine(ZoomEffect(zoomSize));
         }
-        if (Input.GetKeyDown(KeyCode.R))
+
+        //microondas
+        if (objeto == "microondas")
         {
+            interactuar.camaraCerca = true;
             currentView = views[3];
             StartCoroutine(ZoomEffect(zoomSize));
         }
-        if (Input.GetKeyDown(KeyCode.T))
+        //ventilador
+        if (objeto == "ventilador")
         {
+            interactuar.camaraCerca = true;
             currentView = views[4];
             StartCoroutine(ZoomEffect(zoomSize));
         }
-        if (Input.GetKeyDown(KeyCode.Y))
+        //computadora
+        if (objeto == "computadora")
         {
+            interactuar.camaraCerca = true;
             currentView = views[5];
             StartCoroutine(ZoomEffect(zoomSize));
         }
 
-        //Esta ultima es la vista general, la original de la camara digamos
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            currentView = views[6];
-            StartCoroutine(ZoomEffect(originalSize)); // Restaura el tama�o original
+            // Última es la vista general, la original de la cámara
+            else if (objeto == "general")
+            {
+                interactuar.camaraCerca = false;
+                currentView = views[6];
+                StartCoroutine(ZoomEffect(originalSize)); // Restaura el tamaño original
+            }
         }
-
     }
 
-    // agregue recien 
+    public void DesactivarZoom()
+    {
+        // Verifica si el zoom está activo antes de desactivarlo
+        if (interactuar.camaraCerca)
+        {
+            interactuar.camaraCerca = false;
+            currentView = views[6];
+            StartCoroutine(ZoomEffect(originalSize)); // Restaura el tamaño original
+        }
+    }
+
     IEnumerator ZoomEffect(float targetSize)
     {
         float initialSize = mainCamera.orthographicSize;
@@ -83,11 +139,8 @@ public class CamaraElementos : MonoBehaviour
         }
     }
 
-    // aca se hace el movimiento de camara en si
     private void LateUpdate()
     {
-
         transform.position = Vector3.Lerp(transform.position, currentView.position, Time.deltaTime * transitionSpeed);
-
     }
 }

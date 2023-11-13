@@ -18,7 +18,7 @@ public class Interactuar : MonoBehaviour
     public bool aspiradoraOn;
     public bool ventiladorOn;
     public bool computadoraOn;
-
+    public bool camaraCerca;
     private Dialogos dialogos;
     private ControlarLuces controlarLuces;
 
@@ -28,6 +28,7 @@ public class Interactuar : MonoBehaviour
 
     private CameraSequenceController camSeqController;
     private ControladorCamaras controladorCamaras;
+    private CamaraElementos camaraElementos;
 
     public bool on;
               
@@ -41,6 +42,7 @@ public class Interactuar : MonoBehaviour
         temporizador = FindObjectOfType<Temporizador>(); // Encuentra el objeto con el script ControlarLuces
         camSeqController = FindObjectOfType<CameraSequenceController>();
         controladorCamaras = FindObjectOfType<ControladorCamaras>();
+        camaraElementos = FindObjectOfType<CamaraElementos>();
        // controlAudios = FindObjectOfType<ControladorAudios>();
        
         aireOn= false;      
@@ -63,13 +65,15 @@ public class Interactuar : MonoBehaviour
             dialogos.desactivarComputadora();
             controlarLuces.desactivarLuces("monitor"); 
             controlarLuces.desactivarLuces("gabinete");  
-            modificarCompu();        
+            modificarCompu();  
+            camaraElementos.acercarCamara("computadora");      
         }
         if(esMicroondas){   
             microondasOn =! microondasOn;     
             dialogos.desactivarMicroondas();
             controlarLuces.desactivarLuces("microondas"); 
             modificarMicroondas();
+            camaraElementos.acercarCamara("microondas");
         }
     
         if(esLavarropas){              
@@ -77,12 +81,14 @@ public class Interactuar : MonoBehaviour
             modificarLavarropas();
             dialogos.desactivarLavarropas(); 
             controlarLuces.desactivarLuces("lavarropas"); 
+            camaraElementos.acercarCamara("lavarropas");
         }
         if(esAire){            
             aireOn =! aireOn;      
             modificarAire();
             dialogos.desactivarAire();
             controlarLuces.desactivarLuces("aire");
+            camaraElementos.acercarCamara("aire");
             if(aireOn){
                 temporizador.disminuirTemperatura();                
             } 
@@ -94,13 +100,19 @@ public class Interactuar : MonoBehaviour
             modificarAspiradora();
             dialogos.desactivarAspiradora();
             controlarLuces.desactivarLuces("aspiradora"); 
+            camaraElementos.acercarCamara("aspiradora");
         }
         if(esVentilador){  
             ventiladorOn =! ventiladorOn; 
             modificarVentilador();
             dialogos.desactivarVentilador();
             controlarLuces.desactivarLuces("ventilador"); 
+            camaraElementos.acercarCamara("ventilador");
         } 
+    }
+
+    public void llamarAcercarCamara(string objeto){
+        camaraElementos.DesactivarZoom();
     }
 /*
     void OnOffLuz(){
