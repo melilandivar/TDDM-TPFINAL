@@ -6,9 +6,14 @@ TagManager:
   tags:
   - Escalera01
   - Escalera02
-  - Silla
-  - Lavarropa
   - ColiMaria03
+  - ColiPiso2
+  - ColiMaria01
+  - ColiMaria02
+  - ColiMariaEsc02
+  - Lavarropa
+  - Silla
+  - ultimaPrincipio
   layers:
   - Default
   - TransparentFX
